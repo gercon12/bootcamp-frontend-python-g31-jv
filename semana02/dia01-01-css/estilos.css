@@ -1,0 +1,53 @@
+body {
+    background-color: peru;
+}
+
+p {
+    color: blue;
+    font-size: 20px;
+    text-align: center;
+}
+
+h2 {
+    color: purple;
+    font-size: 50px;
+    text-align: center;
+    background-color: aquamarine;
+}
+h3 {
+    color: red;
+    font-size: 50px;
+    text-align: center;
+    background-color: lightgreen;
+}
+h4 {
+    color: blue;
+    font-size: 50px;
+    text-align: center;
+    background-color: lightblue;
+}
+
+h5 {
+    background-color: aquamarine;
+    font-size: 50px;
+}
+
+#estado {
+    background-color: lightgreen;
+    font-size: 50px;
+}
+
+.btn {
+    background-color: red;
+    font-size: 50px;
+}
+
+.texto-resaltado {
+    background-color: blue;
+
+    font-size: 50px;
+}
+.btn-verde {
+    background-color: green;
+    font-size: 50px;
+}
