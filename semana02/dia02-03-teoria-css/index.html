@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teoria CSS</title>
+    <style>
+        /* Pseudo clases */
+        button {
+            background-color: red;
+        }
+
+        button:hover {
+            background-color: blue;
+            font-size: 25px;
+            text-transform: uppercase;
+            text-decoration: underline;
+            text-decoration-color: yellow;
+        }
+        /* Pseudo elementos: Permiten crear partes virtuales en un elemento etiqueta */
+
+        p {
+            color: blue;
+        }
+
+        p::before {
+            content: "🤔 X";
+            color: red;
+        }
+
+        p::after {
+            content: "😊 Y";
+            font-size: 28px;
+        }
+
+        /* Selectores combinados */
+        /* Selector descendiente */
+        article { 
+            background-color: aquamarine; 
+        }
+        article h2 {
+            color: orange;
+        }
+        article strong {
+            color: green;
+        }
+
+        /* selector de multiples selectores */
+        h1, h2 em { 
+            border: 5px solid salmon; 
+        }
+
+        /*herencia*/
+        /*algunos estilos se heredan automaticamene y otro no lo hacen*/
+        body {
+            color: blue;
+        }
+
+        button {
+            color: inherit;
+        }
+
+        a{
+            color: inherit;
+        }
+        /* cascada*/
+        /*decide que estilo gana cuando hay conflictos.  Depende del orden, especificidad, y herencia.  El ultimo estilo que se aplica es el que gana*/
+
+        header {
+            color: violet;
+        }
+
+        #cabecera {
+            color: blue;
+        }
+
+        .texto {
+            color: red;
+        }
+
+        /*unidades de medida*/
+        /*
+        Absolutas: px, cm, in
+        Relativas: %, em, rem, vw, vh* (mas modernas mas flexibles)
+        */
+
+        /*colores*/
+        h2 {
+            color: fuchsia;
+            color: #ff00ff; /*3 numeros hexadecimales: red, green, blue*/   
+            
+        }
+
+
+
+    </style>
+</head>
+
+<body>
+    <button>Click Aqui</button>
+    <p> Texto expecial</p>
+
+    <article>
+        <h2>Bienvenido</h2>
+
+        <strong>Hola a todos</strong>
+    </article>
+
+    <section>
+        <h1>Título </h1>
+        <h2>Subtítulo</h2>
+
+        <strong>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut atque, non ipsam dolorum maxime laborum tenetur magni molestias, laboriosam dolorem aspernatur fugit beatae fuga, in voluptatem nulla! Obcaecati, atque necessitatibus?</strong>
+
+        <em>Texto con enfasis</em>
+
+        <a href="">Soy un link</a>
+    </section>
+
+    <header id="cabecera" class="texto">
+        De que soy?
+      
+    </header>
+
+
+</body>
+
+</html>
