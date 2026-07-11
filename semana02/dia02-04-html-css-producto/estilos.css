@@ -4,33 +4,130 @@ font-family: "Fraunces", serif;
 
 */
 body {
-    background-color: hsl(30,38%,92%);
+    background-color: hsl(30, 38%, 92%);
 
-    font-family: "Montserrat", sans-serif;
+    /*font-family: "Montserrat", sans-serif;*/
+    font-family: "Fraunces", serif;
     font-size: 14px;
     display: flex;
-    justify-content: center;/*alineacion horizontal */
-    align-items: center;/*alineacion vertical */
+    justify-content: center;
+    /*alineacion horizontal */
+    align-items: center;
+    /*alineacion vertical */
     height: 100vh;
+
+}
+
+h2,
+p {
+    color: hsl(228, 12%, 48%);
+}
+
+h2 {
+    font-family: "Montserrat", sans-serif;
+    color: hsl(228, 12%, 48%);
+    text-transform: uppercase;
 }
 
 main {
-    border: 1px solid red;
-    
-    width: 650px;
+    /*border: 1px solid red;*/
+
+    width: 600px;
 
     min-height: 400px;
 
     display: flex;
+
+}
+
+h2 {
+    font-size: 15px;
+    font-weight: normal;
+    font-family: "Fraunces", serif;
 }
 
 .photo {
-    width: 350px;
+    width: 300px;
+    /*border:1px solid red;*/
+    box-sizing: border-box;
+    /*height: 400px;*/
 
     background-image: url(images/image-product-desktop.jpg);
     background-size: cover;
+    border-radius: 10px 0px 0px 10px;
+
 }
 
 .content {
     width: 300px;
+    padding: 30px;
+    /*border: 1px solid blue;*/
+    box-sizing: border-box;
+
+    background-color: white;
+    border-radius: 0px 10px 10px 0px;
+
+}
+
+.price {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin: 20px 0;
+
+}
+
+.current-price {
+    color: hsl(158, 36%, 37%);
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.old-price{
+    font-size:14px;
+    color: gray;
+    text-decoration: line-through;
+}
+
+/*
+button {
+    background-color: hsl(158, 36%, 37%);
+    font-weight: bold;
+    color: white;
+    border: none;
+    padding: 15px 0px;
+    font-size: 12px;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 5px;
+    margin-top: 20px;
+
+}
+
+button::before {
+    content: "🛒 ";
+    color: white;
+}
+*/
+.btn-cart{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+
+    width: 100%;
+
+    background:hsl(158,36%,37%);
+    color:white;
+
+    padding:15px;
+    border:none;
+    border-radius:10px;
+
+    font-weight:bold;
+}
+
+.btn-cart img{
+    width:18px;
+    height:18px;
 }
