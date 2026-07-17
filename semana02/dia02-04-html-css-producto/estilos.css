@@ -20,12 +20,17 @@ body {
 
 p {
     color: hsl(228, 12%, 48%);
+    font-weight: 500;
+    line-height: 1.5;
 }
 
 h2 {
+    /*PERFUME*/
     font-family: "Montserrat", sans-serif;
+    font-size:14px;
     color: hsl(228, 12%, 48%);
     text-transform: uppercase;
+    letter-spacing: 7px;
 }
 
 main {
@@ -38,13 +43,13 @@ main {
     display: flex;
 
 }
-
+/*
 h2 {
     font-size: 15px;
     font-weight: normal;
     font-family: "Fraunces", serif;
 }
-
+*/
 .photo {
     width: 300px;
     /*border:1px solid red;*/
@@ -84,7 +89,7 @@ h2 {
 
 .old-price{
     font-size:14px;
-    color: gray;
+    color: hsl(228, 12%, 48%);
     text-decoration: line-through;
 }
 
