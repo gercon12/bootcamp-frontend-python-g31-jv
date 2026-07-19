@@ -34,7 +34,8 @@ a {
 
 img {
     /*ToDo: RWD(Responsive Web Design) para las imagenes */
-    max-width: 100%;/*La imagen nunca sera mas grande que su contenedor*/
+    max-width: 100%;
+    /*La imagen nunca sera mas grande que su contenedor*/
     height: auto;
 }
 
@@ -84,7 +85,7 @@ img {
     gap: 2rem;
     /*2 rem <> 28px  <> 14px*2 */
     padding-top: 3rem;
-    padding-bottom: 12rem;
+    padding-bottom: 4rem;
 
     background-color: hsl(217, 28%, 15%);
 
@@ -112,7 +113,7 @@ img {
 }
 
 .hero__button {
-    background-color: hsl(176,68%,64%);
+    background-color: hsl(176, 68%, 64%);
     border: none;
     border-radius: 7rem;
     padding: 1rem;
@@ -121,4 +122,49 @@ img {
 
     font-family: "Raleway", sans-serif;
 
+}
+
+/*Stay productive section*/
+/* PRODUCTIVE */
+.productive{
+    /* border: 1px solid red; */
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    gap:100px;
+
+    padding:100px 0;
+}
+
+.productive__image{
+    flex:1;
+    max-width:620px;
+}
+
+.productive__image img{
+    display:block;
+    width:100%;
+}
+
+.productive__content{
+    flex:1;
+    max-width:500px;
+}
+
+.productive__title{
+    font-family:"Raleway", sans-serif;
+    font-size:2.7rem;
+    margin-bottom:28px;
+}
+
+.productive__text{
+    margin-bottom:20px;
+    line-height:1.7;
+}
+
+.productive__link{
+    color:hsl(176,68%,64%);
+    border-bottom:1px solid hsl(176,68%,64%);
+    padding-bottom:4px;
 }
