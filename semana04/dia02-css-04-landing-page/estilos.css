@@ -78,6 +78,8 @@ img {
 .header__nav {
     /* border: 1px solid red; */
     display: flex;
+    justify-content: space-around;
+    align-items: center;
     gap: 42px;
 }
 
