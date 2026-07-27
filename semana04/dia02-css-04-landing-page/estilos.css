@@ -72,7 +72,7 @@ img {
 
 .header__logo {
     width: 140px;
-    /* padding-left: 2rem; */
+    padding-right: 2rem;
 }
 
 .header__nav {
