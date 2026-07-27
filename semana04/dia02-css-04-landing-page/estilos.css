@@ -191,6 +191,7 @@ img {
 .productive {
     /* border: 1px solid red; */
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 
@@ -198,6 +199,13 @@ img {
 
     padding: 100px 0;
 }
+
+@media (min-width:992px) {
+    .productive {
+        flex-direction: row;
+    }
+}
+
 
 .productive__image {
     flex: 1;
