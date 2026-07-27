@@ -32,6 +32,10 @@ a {
     text-decoration: none;
 }
 
+a:hover{
+    color: greenyellow;
+}
+
 img {
     /*ToDo: RWD(Responsive Web Design) para las imagenes */
     max-width: 100%;
@@ -54,6 +58,7 @@ img {
 
 .header {
     /* border: 1px solid red; */
+    padding: 2rem 4rem 2rem 4rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -67,6 +72,7 @@ img {
 
 .header__logo {
     width: 140px;
+    /* padding-left: 2rem; */
 }
 
 .header__nav {
@@ -225,6 +231,11 @@ img {
     padding-bottom: 4px;
 }
 
+.productive__link:hover {
+    color:greenyellow;
+    border-bottom: 1px solid greenyellow;
+    
+}
 
 /*----------------------------------------------------------------------------------------------------------------------------*/
 
