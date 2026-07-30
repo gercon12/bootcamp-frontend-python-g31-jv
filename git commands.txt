@@ -1,0 +1,15 @@
+git checkout
+git status
+git diff id1 id2
+git --no-paper config --list
+git log
+git add .
+git commit -m "message"
+git reset id --hard
+git branch
+
+display: flex;
+justify-content: flex-start, flex-end, center, space-around, space-between, space-evenly
+align-items; flex-end, flex-start, center, baseline, stretch(default)
+flex-direction: row, row-reverse, column, column-reverse
+align-content: flex-start, flex-end, center, space-between, space-around, stretch
