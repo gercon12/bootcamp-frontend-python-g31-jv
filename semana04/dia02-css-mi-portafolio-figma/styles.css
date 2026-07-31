@@ -1,0 +1,19 @@
+/*
+font-family: "Poppins", sans-serif;
+
+background: #4F4557;
+
+*/
+
+/*CUSTOM PROPERTIES - VARIABLES*/
+
+:root {
+    --primary-color-gold: #FFB742;
+    --fondo: #4F4557;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: var(--fondo);
+
+}
