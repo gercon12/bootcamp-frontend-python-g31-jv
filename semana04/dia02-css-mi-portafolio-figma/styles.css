@@ -85,7 +85,7 @@ a {
 /* TODO: Terminar los estilos del header */
 
 .header {
-    border: 1px solid red;
+    /* border: 1px solid red; */
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -101,8 +101,8 @@ a {
 }
 
 .header__menu {
-    display: flex;
-    border: 1px solid red;
+    display: none;
+    /* border: 1px solid red; */
     gap: 1.5rem;
 }
 
@@ -129,6 +129,8 @@ a {
     color: var(--primary-color-gold)
 }
 
+
+/*-----------------------------------Hero Section------------------------------------*/
 .hero {
     display: flex;
     flex-direction: column;
@@ -162,10 +164,12 @@ a {
 
 }
 
-.hero_photo {
+.hero__photo {
     border-radius: 100%;
 
 }
+
+/*-----------------------------------Stack Section------------------------------------*/
 
 .stack {
     display: grid;
