@@ -383,8 +383,8 @@ img {
 
 .articles__items__h3 {
     font-size: 1.25rem;
-    color: var(--Gray-600);
-    font-weight: 600;
+    color: var(--dark-blue);
+    font-weight: 300;
 }
 
 /*-----------------Section Footer-----------------------*/
@@ -455,5 +455,5 @@ img {
 }
 
 .footer__request span {
-    font-size: 0.75rem;
+    font-size: 0.70rem;
 }
