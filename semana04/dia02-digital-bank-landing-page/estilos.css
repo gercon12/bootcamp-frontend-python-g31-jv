@@ -80,7 +80,7 @@ img {
 .header__nav {
     display: none;
     /* border: 1px solid red; */
-    gap: 1.5rem;
+    gap: 1rem;
 }
 
 @media(min-width:768px) {
@@ -88,7 +88,7 @@ img {
         display: flex;
         justify-content: space-around;
         align-items: center;
-        gap: 42px;
+        gap: 2rempx;
         color: var(--Gray-600);
     }
 }
