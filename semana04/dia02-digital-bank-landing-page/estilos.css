@@ -90,6 +90,7 @@ img {
         align-items: center;
         gap: 2rempx;
         color: var(--Gray-600);
+        font-size: 1rem;
     }
 }
 
