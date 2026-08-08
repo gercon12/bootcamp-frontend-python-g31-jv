@@ -68,6 +68,8 @@ console.log(listaDeNombre.at(-1));// Jhoel, el ultimo valor
 console.log(listaDeNombre.at(-2));
 
 //To Do: investigar funcion slice
+const frutas = ["manzana", "durazno", "mango", "pera", "uvas", "banano"];
+console.log(frutas.slice(2,4));
 console.log(listaDeValores.slice(0,3));
 
 
