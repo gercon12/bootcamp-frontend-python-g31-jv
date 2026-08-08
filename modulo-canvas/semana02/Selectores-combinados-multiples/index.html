@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selectores combinados y multiples</title>
+    <style>
+    body p {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1.2rem;
+        color:cadetblue;
+    }
+    span {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1.2rem;
+        color: darkorange;
+    }
+
+    /* Selectores descendientes */
+    p span {
+        color: tomato;
+        font-weight: bold;
+    }
+
+    /*selector hijo directo*/
+    ul > li {
+        color: darkgreen;
+        font-weight: bold;
+        border-top: 1px solid darkgreen;
+    }
+
+    ul > li:first-child {
+        color: darkred;
+        font-weight: bold;
+        border-top: 1px solid darkred;
+    }
+
+    ul > li:last-child {
+        color:darkmagenta;
+        font-weight: bold;
+        border-top: 1px dotted darkmagenta;
+    }
+
+    ul > li:nth-child(8) {
+        color: darkblue;
+        font-weight: bold;
+        border-top: 1px solid darkblue;
+    }
+
+
+    /*Hermanos adyacentes - Adjacent Sibling*/
+
+    h2 + p {
+        color:blanchedalmond;
+        font-weight: bold;
+    }
+    </style>
+</head>
+<body>
+
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate veritatis corrupti velit nisi explicabo ratione soluta laboriosam facere delectus sit quos accusamus esse, sequi vitae assumenda quam magnam libero beatae?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate veritatis corrupti velit nisi explicabo ratione soluta laboriosam facere delectus sit quos accusamus esse, sequi vitae assumenda quam magnam libero beatae?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate veritatis corrupti velit nisi explicabo ratione soluta laboriosam facere delectus sit quos accusamus esse, sequi vitae assumenda quam magnam libero beatae?</p>
+    <p>
+        <span> 
+            Hola soy un span dentro de un parrafo
+        </span>
+    </p>
+    <span>Span fuera del parrafo</span>
+
+    <ul>
+        <li>Elemento 1</li>
+        <li>Elemento 2</li>
+        <li>Elemento 3</li>
+        <li>Elemento 4</li>
+        <li>Elemento 5</li>
+        <li>Elemento 6</li>
+        <li>Elemento 7</li>
+        <li>Elemento 8</li>
+        <ol>
+            <li>Elemento 1</li>
+            <li>Elemento 2</li>
+            <li>Elemento 3</li>
+    </ul>
+
+    <h2>Titulo</h2>
+    <p>parrafo</p>
+    <h2>Titulo</h2>
+    <span>span</span>
+    <p>parrafo</p>
+    <h2>Titulo</h2>
+    <p>parrafo</p>
+
+</body>
+</html>
