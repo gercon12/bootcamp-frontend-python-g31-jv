@@ -143,9 +143,9 @@ console.log(sumarArray([-1, 1])) // → 0
 //Option 2
 function sumarArray1(arr=[]) {
 
-    const sumarArray = arr.reduce(function(acumulador, valorActual) {
+    return arr.reduce(function(acumulador, valorActual) {
         return acumulador + valorActual
-    })
+    },0);
 }
 
  console.log('Ejercicio 4: Sumar array - Opcion 2')
