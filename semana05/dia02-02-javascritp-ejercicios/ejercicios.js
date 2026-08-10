@@ -3,12 +3,13 @@
 // Ejercicio 1: Contar vocales
 // Descripción: Retorna cuántas vocales contiene un texto dado, sin importar mayúsculas.
 
+//Opcion 1
 function contarVocales(texto) {
     const resultado = texto.toLowerCase().split('').filter(function (letra) {
         return 'aeiouáéíóú'.includes(letra)
     })
 
-    return resultado
+    return resultado.length
 }
 
 console.log('Ejercicio 1 - Opcion 1: Contar vocales')
@@ -18,10 +19,8 @@ console.log(contarVocales('xyz')) // → 0
 console.log(contarVocales('Programación')) //  → 5
 console.log('------------------------')
 
-//opcion 2
-
-
-function cuentaVocales(palabra) {
+//Opcion 2
+function cuentaVocales2(palabra) {
     let text = palabra.toLowerCase();
     vocales = [];
     let count = 0;
@@ -42,15 +41,14 @@ function cuentaVocales(palabra) {
 }
 
 console.log('Ejercicio 1: Contar vocales - Opcion 2')
-console.log(cuentaVocales('Hola Mundo')) //  → 4
-console.log(cuentaVocales('AEIOU')) //  → 5
-console.log(cuentaVocales('xyz')) // → 0
-console.log(cuentaVocales('Programación')) //  → 5
+console.log(cuentaVocales2('Hola Mundo')) //  → 4
+console.log(cuentaVocales2('AEIOU')) //  → 5
+console.log(cuentaVocales2('xyz')) // → 0
+console.log(cuentaVocales2('Programación')) //  → 5
 console.log('------------------------')
 
-
 //Opcion 3
-function countVocal(palabra) {
+function countVocales3(palabra) {
     let text = palabra.toLowerCase();
     let count = 0;
     for (let i = 0; i < text.length; i++) {
@@ -62,17 +60,17 @@ function countVocal(palabra) {
 }
 
 console.log('Ejercicio 1: Contar vocales - Opcion 3')
-console.log(countVocal('AEIOU')) //  → 5
-console.log(countVocal('Hola Mundo')) //  → 4
-console.log(countVocal('xyz')) // → 0
-console.log(countVocal('Programación')) //  → 5
+console.log(countVocales3('Hola Mundo')) //  → 4
+console.log(countVocales3('AEIOU')) //  → 5
+console.log(countVocales3('xyz')) // → 0
+console.log(countVocales3('Programación')) //  → 5
 console.log('------------------------')
-
 
 
 // Ejercicio 2: Eliminar duplicados
 // Descripción: Elimina elementos duplicados de un array manteniendo el orden.
 
+//Opcion 1
 function eliminarDuplicados(arr = []) {
     const resultado = []
     for (const elemento of arr) {
@@ -83,8 +81,6 @@ function eliminarDuplicados(arr = []) {
     return resultado
 }
 
-
-
 console.log('Ejercicio 2: Eliminar duplicados Opcion 1')
 console.log(eliminarDuplicados([1, 2, 2, 3])) // → [1,2,3]
 console.log(eliminarDuplicados(['a', 'b', 'a'])) // → ['a','b']
@@ -92,23 +88,22 @@ console.log(eliminarDuplicados([])) // → []
 console.log(eliminarDuplicados([true, false, true])) // → [true, false]
 
 
-//Version 2
-function eliminarDuplicadosV1(arr = []) {
+//Opcion 2
+function eliminarDuplicados2(arr = []) {
     return [...new Set(arr)]
 }
 
-
 console.log('Ejercicio 2: Eliminar duplicados - Opcion 2')
-console.log(eliminarDuplicadosV1([1, 2, 2, 3])) // → [1,2,3]
-console.log(eliminarDuplicadosV1(['a', 'b', 'a'])) // → ['a','b']
-console.log(eliminarDuplicadosV1([])) // → []
-console.log(eliminarDuplicadosV1([true, false, true])) // → [true, false]
+console.log(eliminarDuplicados2([1, 2, 2, 3])) // → [1,2,3]
+console.log(eliminarDuplicados2(['a', 'b', 'a'])) // → ['a','b']
+console.log(eliminarDuplicados2([])) // → []
+console.log(eliminarDuplicados2([true, false, true])) // → [true, false]
 
 
 // Ejercicio 3: Invertir texto
 // Descripción: Invierte una cadena de texto.
 
-
+//Opcion 1
 function invertirTexto(texto) {
     let textoInvertido = "";
     for (let i = texto.length - 1; i >= 0; i--) {
@@ -117,11 +112,21 @@ function invertirTexto(texto) {
     return textoInvertido;
 }
 
-console.log('Ejercicio 3: Invertir texto')
+console.log('Ejercicio 3: Invertir texto - Opcion 1')
 console.log(invertirTexto('hola')) // → 'aloh'
 console.log(invertirTexto('123')) // → '321'
 console.log(invertirTexto('')) // → ''
 
+//Opcion 2
+function invertirTexto2(texto) {
+    let textoInvertido = texto.split('').reverse().join('');
+    return textoInvertido;
+}
+
+console.log('Ejercicio 3: Invertir texto - Opcion 2')
+console.log(invertirTexto2('hola')) // → 'aloh'
+console.log(invertirTexto2('123')) // → '321'
+console.log(invertirTexto2('')) // → ''
 
 // Ejercicio 4: Sumar array
 // Descripción: Retorna la suma total de todos los números en un array.
@@ -142,7 +147,7 @@ console.log(sumarArray([-1, 1])) // → 0
 
 
 //Option 2
-function sumarArray1(arr = []) {
+function sumarArray2(arr = []) {
 
     return arr.reduce(function (acumulador, valorActual) {
         return acumulador + valorActual
@@ -150,10 +155,9 @@ function sumarArray1(arr = []) {
 }
 
 console.log('Ejercicio 4: Sumar array - Opcion 2')
-console.log(sumarArray1([1, 2, 3])) // → 6
-console.log(sumarArray1([])) // → 0
-console.log(sumarArray1([-1, 1])) // → 0
-
+console.log(sumarArray2([1, 2, 3])) // → 6
+console.log(sumarArray2([])) // → 0
+console.log(sumarArray2([-1, 1])) // → 0
 
 
 // Ejercicio 5: Celsius a fahrenheit
@@ -173,7 +177,6 @@ console.log(celsiusAFahrenheit(0)) // → 32
 // Ejercicio 6: Es palindromo
 // Descripción: Retorna true si un texto es un palíndromo (ignora espacios y mayúsculas).
 
-
 function esPalindromo(texto) {
     texto = texto.toLowerCase();
 
@@ -191,17 +194,17 @@ function esPalindromo(texto) {
     }
 }
 
-
 console.log('Ejercicio 6: Es palindromo - Opcion 1')
 console.log(esPalindromo('Hola')) // → false
 console.log(esPalindromo('A man a plan a canal Panama')) // → true
 console.log(esPalindromo('Anita lava la tina')) // → true
-console.log(esPalindromo('2112'))
+console.log(esPalindromo('2112')) // → true
 
 
 // Ejercicio 7: Elementos en Común
 // Descripción: Retorna un array con los elementos en común entre dos arrays (sin repetir).
 
+//Opcion 1
 function elementosEnComun(arr1 = [], arr2 = []) {
     nuevoArreglo = [];
 
@@ -223,30 +226,25 @@ console.log(elementosEnComun([true], [true, false])) // → [true]
 console.log(elementosEnComun(['a', 'b', 'e', 'a'], ['a', 'b', 'c', 'd', 'e', 'f', 'g']))
 console.log(typeof (nuevoArreglo))
 
-
-function elementosEnComun(arr1 = [], arr2 = []) {
+//Opcion 2
+function elementosEnComun2(arr1 = [], arr2 = []) {
     nuevoArreglo = arr1.filter(x => arr2.includes(x));
     return [...new Set(nuevoArreglo)];
 }
 
 console.log('Ejercicio 7: Elementos en Común Opcion 2')
-console.log(elementosEnComun(['a', 'b'], ['b', 'c'])) // → ['b']
-console.log(elementosEnComun([], [1, 2])) // → []
-console.log(elementosEnComun([1, 2, 3], [2, 3, 4])) // → [2,3]
-console.log(elementosEnComun([true], [true, false])) // → [true]
-console.log(elementosEnComun(['a', 'b', 'e', 'a'], ['a', 'b', 'c', 'd', 'e', 'f', 'g']))
+console.log(elementosEnComun2(['a', 'b'], ['b', 'c'])) // → ['b']
+console.log(elementosEnComun2([], [1, 2])) // → []
+console.log(elementosEnComun2([1, 2, 3], [2, 3, 4])) // → [2,3]
+console.log(elementosEnComun2([true], [true, false])) // → [true]
+console.log(elementosEnComun2(['a', 'b', 'e', 'a'], ['a', 'b', 'c', 'd', 'e', 'f', 'g']))
 console.log(typeof (nuevoArreglo))
 
 
 // Ejercicio 8: Mayor número
 // Descripción: Retorna el número más grande de un array de números.
 
-/*
-const ordenandoLenguajes = lenguajes.toSorted()
-console.log(ordenandoLenguajes);
-console.log(lenguajes);
-*/
-
+//Opcion 1
 function mayorNumero(arr = []) {
     const arregloOrdenado = arr.toSorted((a, b) => a - b);
     return arregloOrdenado.at(-1);
@@ -259,20 +257,18 @@ console.log(mayorNumero([42])) // → 42
 console.log(mayorNumero([1, 5, 3])) // → 5
 console.log(mayorNumero([-3, 2, 0])) //2
 
-
-function mayorNum(arr = []) {
+//Opcion 2
+function mayorNumero2(arr = []) {
     const maximo = Math.max(...arr);
     return maximo;
 
 }
 
 console.log('Ejercicio 8: Mayor número Opcion 2')
-console.log(mayorNum([-1, -5, -3])) // → -1
-console.log(mayorNum([42])) // → 42
-console.log(mayorNum([1, 5, 3])) // → 5
-console.log(mayorNum([-3, 2, 0])) //2
-
-
+console.log(mayorNumero2([-1, -5, -3])) // → -1
+console.log(mayorNumero2([42])) // → 42
+console.log(mayorNumero2([1, 5, 3])) // → 5
+console.log(mayorNumero2([-3, 2, 0])) //2
 
 
 // Ejercicio 9: Repetir texto
@@ -318,7 +314,7 @@ console.log('Ejercicio 11: Filtrar pares')
 console.log(filtrarPares([5, 7, 9])) // → []
 console.log(filtrarPares([0, 10, 15])) // → [0, 10]
 console.log(filtrarPares([1, 2, 3, 4])) // → [2,4]
-console.log(filtrarPares([1, 3, 5, 7, 9, 10])) //10
+console.log(filtrarPares([1, 3, 5, 7, 9, 10])) //→ [10]
 
 
 // Ejercicio 12: Contar palabras
@@ -347,6 +343,7 @@ console.log(contarPalabras('Hola   mundo  JS')); // → 3 (¡Ahora funciona!)
 // Ejercicio 13: Reemplazar palabra
 // Descripción: Reemplaza una palabra específica por otra dentro de una frase.
 
+//Opcion 1
 function reemplazarPalabra(frase = '', buscar = '', reemplazar = '') {
 
     const arregloFrase = frase.split(' ');
@@ -365,24 +362,22 @@ function reemplazarPalabra(frase = '', buscar = '', reemplazar = '') {
     return frase;
 }
 
-
-
 console.log('Ejercicio 13: Reemplazar palabra Opcion 1')
 console.log(reemplazarPalabra('Hola mundo', 'mundo', 'JS')) // → 'Hola JS'
 console.log(reemplazarPalabra('La casa es blanca', 'blanca', 'roja')) // → 'La casa es roja'
 console.log(reemplazarPalabra('Me gusta el café', 'café', 'té')) // → 'Me gusta el té'
 
 
-
-function reemplazarPal(frase = '', buscar = '', reemplazar = '') {
+//Opcion 2
+function reemplazarPalabra2(frase = '', buscar = '', reemplazar = '') {
     const encontrarFrase = frase.replace(buscar, reemplazar)
     return encontrarFrase
 }
 
 console.log('Ejercicio 13: Reemplazar palabra Opcion 2')
-console.log(reemplazarPal('Hola mundo', 'mundo', 'JS')) // → 'Hola JS'
-console.log(reemplazarPal('La casa es blanca', 'blanca', 'roja')) // → 'La casa es roja'
-console.log(reemplazarPal('Me gusta el café', 'café', 'té')) // → 'Me gusta el té'
+console.log(reemplazarPalabra2('Hola mundo', 'mundo', 'JS')) // → 'Hola JS'
+console.log(reemplazarPalabra2('La casa es blanca', 'blanca', 'roja')) // → 'La casa es roja'
+console.log(reemplazarPalabra2('Me gusta el café', 'café', 'té')) // → 'Me gusta el té'
 
 
 // Ejercicio 14: Limpiar array
@@ -420,8 +415,6 @@ console.log(generarRango(10)) // → [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
 // Ejercicio 16: Caracter frecuente
 // Descripción: Retorna el carácter que más veces aparece en un texto (ignora espacios).
 
-
-
 function caracterFrecuente(texto = '') {
     palabra = texto.toLowerCase().replaceAll(' ', '');
     let palabraNueva = {};
@@ -444,29 +437,6 @@ function caracterFrecuente(texto = '') {
     }
     return claveMax;
 }
-
-/*
-function caracterFrecuente(texto = '') {
-    const palabra = texto.toLowerCase().replaceAll(' ', '');
-    const contador = {};
-
-    for (let i = 0; i < palabra.length; i++) {
-        contador[palabra[i]] = (contador[palabra[i]] || 0) + 1;
-    }
-
-    let claveMax = '';
-    let valorMax = 0;
-
-    for (const letra in contador) {
-        if (contador[letra] > valorMax) {
-            valorMax = contador[letra];
-            claveMax = letra;
-        }
-    }
-
-    return claveMax;
-}*/
-
 
 console.log('Ejercicio 16: Caracter frecuente')
 console.log(caracterFrecuente('xyz xyz')) // → 'x'
@@ -506,7 +476,19 @@ console.log(contarOcurrencias('hola hola mundo')) // → { hola: 2, mundo: 1 }
 // Descripción: Retorna un array con las longitudes de cada palabra en un texto.
 
 function obtenerLongitudes(texto = '') {
-    return [];
+    let longitudArreglo = [];
+    textoArreglo = texto.trim().split(' ');
+    /*
+    for (let i = 0; i < textoArreglo.length; i++){
+        longitudArreglo.push(textoArreglo[i].length)
+    }
+    return longitudArreglo;
+    */
+    textoArreglo.forEach(function (longitud) {
+        longitudArreglo.push(longitud.length)
+
+    });
+    return longitudArreglo
 }
 
 console.log('Ejercicio 18: Obtener longitudes')
@@ -519,7 +501,13 @@ console.log(obtenerLongitudes('')) // → []
 // Descripción: Calcula el promedio de un array de números.
 
 function promedioArray(arr = []) {
-    return 0;
+    if (arr.length === 0) {
+        return 0;
+    }
+    let suma = arr.reduce(function (acumulador, valorActual) {
+        return acumulador + valorActual
+    })
+    return suma / arr.length;
 }
 
 console.log('Ejercicio 19: Promedio array')
@@ -532,7 +520,11 @@ console.log(promedioArray([])) // → 0
 // Descripción: Convierte una cadena separada por comas en un array limpio y sin espacios extra.
 
 function textoALista(texto = '') {
-    return [];
+    if (texto.trim() === '') {
+        return [];
+    }
+    let arreglo = texto.trim().replaceAll(' ', '').split(',');
+    return arreglo;
 }
 
 console.log('Ejercicio 20: Texto a lista')
