@@ -81,7 +81,7 @@ const lenguajes = ['javascript', 'php','python', 'C', 'c++','java','python']
 console.log(lenguajes.includes('java'));
 console.log(lenguajes.includes('cobol'));
 
-//Metodo Filter, nos ayuda a ubicar unelemento dentro de un arreglo usando una condicion y devuelve un nuevo arreglo
+//Metodo Filter, nos ayuda a ubicar un elemento dentro de un arreglo usando una condicion y devuelve un nuevo arreglo
 const resultado = lenguajes.filter(function(item) {
     //return item === 'python'
     //return item.includes('c') || item.includes('C')
