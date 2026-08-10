@@ -8,3 +8,10 @@
 ![orden grid](image-2.png)
 
 ## media queries
+
+#semana 5 Javascript
+https://notepad-plus-plus.org/
+https://jsbin.com/?html,output
+https://codepen.io/pen/
+https://jsfiddle.net/
+
