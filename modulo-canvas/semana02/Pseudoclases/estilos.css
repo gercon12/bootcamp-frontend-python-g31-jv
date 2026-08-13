@@ -1,0 +1,24 @@
+[href = "https://google.com"]{
+    color: blueviolet;
+}
+
+input[disabled] {
+    background-color: antiquewhite;
+}
+
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+input:focus {
+    background-color: aquamarine;
+}
+
+ul li:nth-child(2) {
+    color:brown;
+}
