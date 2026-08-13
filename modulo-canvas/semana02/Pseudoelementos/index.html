@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pseudoelementos</title>
+    <style>
+        p::first-letter {
+            font-size: 28px;
+            color: blueviolet;
+        }
+        p::first-line {
+            background-color: antiquewhite;
+        }
+        p::after {
+            content: "contenido despues del parrafo";
+            color:brown;
+        }
+        p::before {
+            content: "contenido antes del parrafo";
+            color: salmon;
+        }
+        p::selection {
+            background: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <h1>Pseudoelementos</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil voluptatem expedita recusandae est cum. Voluptas nihil tenetur iste nesciunt nisi, necessitatibus ad molestiae, ratione impedit distinctio porro inventore voluptatibus numquam?</p>
+    
+<header>
+    <nav>
+        <ul>
+            <li><a href=""></a></li>
+            <li><a href=""></a></li>
+            <li><a href=""></a></li>
+            <li><a href=""></a></li>
+        </ul>
+        <main>
+            <section class="hero"></section>
+            <section class="about"></section>
+            <section class="services"></section>
+            <section class="contact"></section>
+        </main>
+    </nav>
+    <footer>
+        <p>2026 M-SoftTech</p>
+    </footer>
+</header>
+
+</body>
+</html>
+

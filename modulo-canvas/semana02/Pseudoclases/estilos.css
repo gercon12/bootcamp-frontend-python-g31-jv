@@ -10,7 +10,7 @@ input[disabled] {
 a {
     text-decoration: none;
 }
-
+/*Pseudoclases*/
 a:hover {
     text-decoration: underline;
 }
@@ -18,7 +18,26 @@ a:hover {
 input:focus {
     background-color: aquamarine;
 }
-
+/* 
 ul li:nth-child(2) {
     color:brown;
+}
+
+ul li:nth-child(odd) {
+    color:darkgray;
+    background-color: dimgrey;
+}
+
+ul li:first-child {
+    color: chartreuse;
+}
+
+ul li:last-child{
+    color:magenta;
+    font-size: 16px;
+}
+ */
+ul li:nth-child(3n + 2) {
+    background-color: gold;
+    color: black;
 }
