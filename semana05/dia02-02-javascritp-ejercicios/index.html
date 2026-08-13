@@ -1,13 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercicios Javascript</title>
 </head>
+
 <body>
     <h1>Ejercicios Javascript Intermedio</h1>
     <script src="ejercicios.js"></script>
-    
+
+    <h2>Arithmetic assigments</h2>
+    <h3>The += operator</h3>
+    <p>The value of x is:</p>
+    <p id="adittion"></p>
+
+    <script>
+        let x = 10;
+        x += 5;
+        document.getElementById("adittion").innerHTML ="Value of x is: " + x;
+    </script>
+
+    <h3>The %= operator</h3>
+    <p>The value of x is:</p>
+    <p id="remainder"></p>
+
+    <script>
+        let y = 10;
+        y %= 3;
+        document.getElementById("remainder").innerHTML ="Value of y is: " + y;
+    </script>
+
 </body>
+
 </html>
