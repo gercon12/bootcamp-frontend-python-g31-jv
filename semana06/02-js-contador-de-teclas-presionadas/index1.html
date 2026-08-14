@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador de palabras version 1</title>
+</head>
+<body>
+    <h1>Contador de palabras</h1>
+    <p>Teclas presionadas: <span id="contador">0</span></p>
+
+    <p>
+        Ultima tecla: <strong id="ultimaTecla">-</strong>
+    </p>
+
+    <script>
+        const contador = document.getElementById('contador')
+        const ultimaTecla = document.getElementById('ultimaTecla')
+
+        let total = 0;
+
+        document.addEventListener('keydown', function (event) {
+            console.log('tecla presionada!')
+            total = total + 1;
+
+            console.log('tecla presionada', total);
+
+            contador.textContent = total;
+            ultimaTecla.textContent = event.key;
+            
+        })
+    </script>
+    
+</body>
+</html>

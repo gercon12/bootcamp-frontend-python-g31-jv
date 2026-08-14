@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript - DOM</title>
+</head>
+<body>
+    <h1>DOM (Document Object Model)</h1>
+
+    <p>Es una representacion en forma de arbol de una pagina web</p>
+
+    <ul>
+        <li>Leer contenido de la pagina</li>
+        <li>Cambiar textos, atributos, estilos dinamicamente</li>
+        <li>Crear o eliminar elementos</li>
+        <li>Escuchar eventos {click, teclas, scroll, animacion, mouse, etc}</li>
+    </ul>
+
+    <script>
+        console.log('Hola DOM');
+        console.log(document);
+        console.log({document:document});
+        console.log(document.title); //Leemos el titulo de la pagina
+        document.title = "Mi nueva pagina" //Escritura de un titulo para la pagina
+    </script>
+    
+</body>
+</html>

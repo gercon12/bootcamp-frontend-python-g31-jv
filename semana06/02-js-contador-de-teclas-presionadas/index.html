@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador de palabras</title>
+
+    <style>
+        #tecla {
+            color: orangered;
+            font-size: 32px;
+        }
+
+        #caracter {
+            color: blue;
+            font-size: 40px;
+        }
+
+        h5 {
+            font-size: 32pxas;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h1>Contador de teclas</h1>
+
+    <main>
+        <h2>JS Key detect</h2>
+
+        <h3 id="tecla">0</h3>
+
+        <h4 id="caracter">A</h4>
+
+        <h5 id="contador">0</h5>
+    </main>
+
+    <script>
+        const tecla = document.getElementById('tecla');
+        const caracter = document.getElementById('caracter');
+        const contador = document.getElementById('contador');
+
+        let cantidad = 0;
+
+        document.addEventListener('keydown', function (event) {
+
+            console.log('Presionaste una tecla!');
+
+            console.log(event.key);
+            console.log(event.keyCode);
+
+            tecla.textContent = event.keyCode;
+            caracter.textContent = event.key;
+
+            cantidad = cantidad + 1;
+
+            contador.textContent = cantidad;
+        });
+    </script>
+
+</body>
+
+</html>
