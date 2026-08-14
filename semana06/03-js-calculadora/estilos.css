@@ -1,0 +1,39 @@
+.calc {
+    border: 1px solid green;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 18px;
+    max-width: 320px;
+    padding: 1rem;
+}
+
+.calc__input {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid red;
+    gap: 2rem;    
+}
+
+#inputDisplay{
+    font-size: 2rem;
+    color: darkblue;
+    max-width: 292px;
+    text-align: right;
+    padding-right: 2rem;
+}
+
+.calc__buttons {
+    display: grid;
+    grid-template-columns: repeat(3, 80px);
+    grid-template-rows: repeat(5, 80px);
+    gap: 10px;
+}
+
+.button {
+    border: 2px solid blueviolet;
+    font-size: 2rem;
+    color: darkblue;
+    border-radius: 9px;
+
+}

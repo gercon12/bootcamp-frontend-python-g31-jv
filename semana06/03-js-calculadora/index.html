@@ -4,33 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora + JS</title>
+    <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
-    <h1>Calculadora con JS</h1>
+    <section class = calc>
 
-    <section>
-        <input id="inputDisplay" readonly value="0">
-
-        <div>
-            <button class="button">+</button>
-            <button class="button">-</button>
-            <button class="button">*</button>
-
-            <button class="button">7</button>
-            <button class="button">8</button>
-            <button class="button">9</button>
-            <button class="button">4</button>
-            <button class="button">5</button>
-            <button class="button">6</button>
-            <button class="button">1</button>
-            <button class="button">2</button>
-            <button class="button">3</button>
+        <h1 class="calc_text">Calculadora con JS</h1>
+        
+        <section class="calc__input">
+            <input id="inputDisplay" readonly value="0">
             
-
-            <button class="button">CE</button>
-            <button class="button">=</button>
-
-        </div>
+            <div class="calc__buttons">
+                <button class="button">+</button>
+                <button class="button">-</button>
+                <button class="button">*</button>
+                
+                <button class="button">7</button>
+                <button class="button">8</button>
+                <button class="button">9</button>
+                <button class="button">4</button>
+                <button class="button">5</button>
+                <button class="button">6</button>
+                <button class="button">1</button>
+                <button class="button">2</button>
+                <button class="button">3</button>
+                
+                
+                <button class="button">CE</button>
+                <button class="button">0</button>
+                <button class="button">=</button>
+                
+            </div>
+        </section>
     </section>
     <script src="main.js"></script>
     
