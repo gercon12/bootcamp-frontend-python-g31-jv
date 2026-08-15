@@ -28,13 +28,13 @@ buttons.forEach(function (button) {
         } else if (buttonText === '=') {
             // calcular las operaciones en base al numero actual y el operando
             if (operador === '+') {
-                numeroActual =  operando +  numeroActual
+                numeroActual =  operando +  Number(numeroActual)
             }
             else if (operador === '-') {
-                numeroActual = operando - numeroActual
+                numeroActual = operando - Number(numeroActual)
 
             } else if (operador === '*') {
-                numeroActual = operando * numeroActual
+                numeroActual = operando * Number(numeroActual)
             }
 
         } else if (buttonText === 'CE') {
@@ -51,3 +51,5 @@ buttons.forEach(function (button) {
         inputDisplay.value = numeroActual
     })
 })
+
+//const backg = document.querySelector('button__0')

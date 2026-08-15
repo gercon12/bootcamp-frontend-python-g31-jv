@@ -1,9 +1,16 @@
 .calc {
-    border: 1px solid green;
+    border: 5px solid darkblue;
     font-family: 'Courier New', Courier, monospace;
     font-size: 18px;
     max-width: 320px;
     padding: 1rem;
+    border-radius: 1.5rem;
+
+    background: linear-gradient(0deg, rgba(42, 123, 155, 1) 0%, rgba(87, 199, 133, 1) 50%);
+}
+
+.calc__text {
+    text-align: center;
 }
 
 .calc__input {
@@ -11,16 +18,17 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 1px solid red;
-    gap: 2rem;    
+    /* border: 1px solid red; */
+    gap: 2rem;
 }
 
-#inputDisplay{
-    font-size: 2rem;
+#inputDisplay {
+    font-size: 3rem;
     color: darkblue;
     max-width: 292px;
     text-align: right;
     padding-right: 2rem;
+    background-color: gainsboro;
 }
 
 .calc__buttons {
@@ -31,9 +39,14 @@
 }
 
 .button {
-    border: 2px solid blueviolet;
+    border: 2px solid darkslateblue;
     font-size: 2rem;
     color: darkblue;
     border-radius: 9px;
 
+}
+
+.button__equal {
+    background-color: cyan;
+    
 }
