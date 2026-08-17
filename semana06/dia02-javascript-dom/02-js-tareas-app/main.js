@@ -39,33 +39,33 @@ taskAdd.addEventListener('click', function (event) {
     const button = document.createElement('button')
     button.textContent = 'Borrar'
     li.appendChild(button)
- 
 
-    // ToDo 04 - Permitir al botón borrar remover una tarea de la lista
+
+    //ToDo 04 - Permitir al botón borrar remover una tarea de la lista
     // button.addEventListener('click', function () {
     //     event.stopPropagation()
     //     li.remove()
     // })
 
-       //taskInput = ''
+    taskInput.value = ''
 
-      // ToDo 04-01
-    //   taskList.addEventListener('click', function(event) {
-    //     console.log('hice click en cualquier parte del ul)
+})
 
-    //     const target = event.target
+//   ToDo 04-01
+taskList.addEventListener('click', function (event) {
+    //console.log('hice click en cualquier parte del ul)
 
-    //     if(EventTarget.tagName === 'BUTTON'){
-    //         console.log('Eliminado tarea....')
-    //         target.parentElement.remove()
-    //     }
-      
+    const target = event.target //elemento presionado
 
-    //   if (target.tagName === 'INPUT' && target.type ==== 'checkbox') {
-    //     console.log('completando tarea...')
-    //     target.classList.toggle('checked')
-    //   }
+    if (target.tagName === 'BUTTON') {
+        console.log('Eliminado tarea....')
+        target.parentElement.remove()
+    }
 
 
-     
+    if (target.tagName === 'INPUT' && target.type === 'checkbox') {
+        console.log('completando tarea...')
+        target.classList.toggle('checked')
+    }
+
 })
