@@ -87,14 +87,16 @@ body {
     gap: 1rem;
 }
 
-
 .hidden {
     display: none;
 }
 
+/* ------------------- */
+
 .header {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .booking {
