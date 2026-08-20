@@ -110,14 +110,17 @@ main {
 
 .booking {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     padding-bottom: 4rem;
+    gap: 4rem;
 }
 
 .booking__card {
     border: 1px solid orange;
-    max-width: 600px;
-    gap:4rem;
+    width: 100%;
+    max-width: 375px;
+    height: 100%;
+    max-height: 375px;
 }
 
 .cards {
