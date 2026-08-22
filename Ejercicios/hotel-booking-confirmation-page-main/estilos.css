@@ -34,6 +34,9 @@
 
     --max-width: 375px;
 
+    --card-width:275px;
+    --card-height: 275px;
+
 }
 
 * {
@@ -56,13 +59,14 @@ body {
     flex-direction: column;
     /* height: inherit; */
     min-height: 100vh;
-    min-width: 100vw;
+    /* min-width: 100vw; */
 
 }
 
 main {
-    flex:1;
-    min-width: 0;
+    /* flex:1; */
+    /* min-width: 0; */
+    width: 100%;
 }
 
 .aside {
@@ -70,7 +74,8 @@ main {
     display: flex;
     flex-direction: column;
     /* justify-content: space-between; */
-    max-width: var(--max-width);
+    /* max-width: var(--max-width); */
+    width: 100%;
 }
 
 
@@ -104,25 +109,59 @@ main {
 .header {
     border: 1px solid green;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
+    width: 100%;
 }
+
+@media (min-width: 992px) {
+
+    .layout {
+        flex-direction: row;
+    }
+
+    .aside {
+        width: 250px;
+        flex-shrink: 0;
+    }
+
+    main {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .header {
+        width: 100%;
+    }
+}
+
 
 /* Booking Cards Section*/
 
 .booking {
     display: flex;
     flex-direction: column;
+    padding-top: 4rem;
     padding-bottom: 4rem;
     gap: 4rem;
 }
 
-.booking__card {
+.booking__card--left {
     border: 1px solid orange;
     width: 100%;
     max-width: 375px;
     /* height: 100%; */
     height: 375px;
+    transform: rotate(15deg);
+}
+
+.booking__card--right {
+    border: 1px solid orange;
+    width: 100%;
+    max-width: 375px;    
+    /* height: 100%; */
+    height: 375px;
+    transform: rotate(-15deg);
 }
 
 
@@ -130,15 +169,43 @@ main {
 .cards {
     display: flex;
     flex-direction: column;
+    width: 100%;
     gap: 2rem;
 }
 
 .card__01 {
+    border: 1px solid greenyellow;
     display: flex;
     flex-direction: column;
+    flex: 0 0 var(--card-width);
+
+    width: var(--card-width);    
+    height: var(--card-height);
 }
 
 .card__02 {
     display: flex;
     flex-direction: column;
+    flex: 0 0 var(--card-width);
+
+    width: var(--card-width);    
+    height: var(--card-height);
+}
+
+@media (min-width: 992px) {
+
+    .booking {
+        /* border: 1px solid black; */
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .cards {
+        border: 1px solid red;
+        flex-direction: row;
+        width: 100%;
+        /* flex-shrink: 0; */
+        justify-content: space-around;
+
+}
 }
