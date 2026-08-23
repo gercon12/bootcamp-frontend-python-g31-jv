@@ -34,7 +34,7 @@
 
     --max-width: 375px;
 
-    --card-width:275px;
+    --card-width: 275px;
     --card-height: 275px;
 
 }
@@ -88,7 +88,7 @@ main {
 .aside__content {
     border: 1px solid greenyellow;
     display: flex;
-    flex-direction: column;    
+    flex-direction: column;
     justify-content: space-between;
 
     /* height: 100%; */
@@ -139,6 +139,7 @@ main {
 /* Booking Cards Section*/
 
 .booking {
+    position:relative;
     display: flex;
     flex-direction: column;
     padding-top: 4rem;
@@ -152,16 +153,22 @@ main {
     max-width: 375px;
     /* height: 100%; */
     height: 375px;
-    transform: rotate(15deg);
+    transform: rotate(0deg);
+}
+
+.booking__card--img {
+    width: 60px;
+    height: 60px;
+    flex-shrink: 0;
 }
 
 .booking__card--right {
     border: 1px solid orange;
     width: 100%;
-    max-width: 375px;    
+    max-width: 375px;
     /* height: 100%; */
     height: 375px;
-    transform: rotate(-15deg);
+    transform: rotate(0deg);
 }
 
 
@@ -174,30 +181,52 @@ main {
 }
 
 .card__01 {
-    border: 1px solid greenyellow;
+    border: 1px solid blueviolet;
     display: flex;
     flex-direction: column;
     flex: 0 0 var(--card-width);
 
-    width: var(--card-width);    
+    width: var(--card-width);
     height: var(--card-height);
 }
 
 .card__02 {
+    border: 1px solid blueviolet;
     display: flex;
     flex-direction: column;
     flex: 0 0 var(--card-width);
 
-    width: var(--card-width);    
+    width: var(--card-width);
     height: var(--card-height);
 }
 
 @media (min-width: 992px) {
 
     .booking {
+        position: relative;
         /* border: 1px solid black; */
         flex-direction: row;
         justify-content: space-around;
+    }
+
+    .booking__card--left {
+        transform: rotate(15deg);
+    }
+
+    .booking__card--img {
+        position: absolute;
+
+        width: 60px;
+        height: 60px;
+
+        left:50%;
+        bottom: 0;
+
+        transform: translateX(-50%);
+    }
+
+    .booking__card--right {
+        transform: rotate(-15deg);
     }
 
     .cards {
@@ -207,5 +236,5 @@ main {
         /* flex-shrink: 0; */
         justify-content: space-around;
 
-}
+    }
 }
