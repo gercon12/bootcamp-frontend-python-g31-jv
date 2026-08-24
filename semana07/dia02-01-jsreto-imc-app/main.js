@@ -9,26 +9,18 @@ const imcPeso = document.querySelector('.imc__peso')
 const imcAltura = document.querySelector('.imc__altura')
 const imcButton = document.querySelector('.imc__button')
 const imcResultado = document.querySelector('.imc__resultado')
+const imcParrafo = document.querySelector('.imc__Parrafo')
 
 
 imcButton.addEventListener('click', (event) => {
     console.log('calculando imc')
+
+    //Inicializar variables
     let resultadoImc = 0
     const peso = Number(imcPeso.value)
     const altura = Number(imcAltura.value) / 100
 
-
-    if (peso === 0 || altura === 0 || typeof (peso) === 'string' || typeof (altura) === 'string') {
-        imcResultado.textContent = 'invalido'
-        imcResultado.classList.add('text-white')
-        return
-    } 
-
-
-    resultadoImc = peso / ((altura ** 2)).toFixed(1)
-    console.log('Su IMC es: ', resultadoImc)
-
-
+    //Limpiar estilos aplicados al Html
     imcResultado.classList.remove(
         'text-white',
         'text-yellow-500',
@@ -37,7 +29,23 @@ imcButton.addEventListener('click', (event) => {
         'text-red-500'
     )
 
+    imcParrafo.classList.remove(
+        'borde-parpadeante'
+    )
 
+    //Ver si hay valor 0 o valores string
+    if (peso === 0 || altura === 0 || typeof (peso) === 'string' || typeof (altura) === 'string') {
+        imcResultado.textContent = 'Invalido'
+        imcResultado.classList.add('text-white')
+        return
+    }
+
+    //Realizar calculo IMC
+    resultadoImc = Number(peso / (altura ** 2)).toFixed(1)
+    console.log('Su IMC es: ', resultadoImc)
+
+
+    //Comparar rango de valores de IMC
     if (resultadoImc < 18.5) {
         imcResultado.textContent = ' Baja'
         imcResultado.classList.add('text-yellow-500')
@@ -50,6 +58,7 @@ imcButton.addEventListener('click', (event) => {
     } else {
         imcResultado.textContent = 'Obeso'
         imcResultado.classList.add('text-red-500')
+        imcParrafo.classList.add('borde-parpadeante')
     }
     //imcResultado.textContent = resultadoImc
 
