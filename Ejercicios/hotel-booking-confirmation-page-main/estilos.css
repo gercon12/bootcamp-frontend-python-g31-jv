@@ -70,7 +70,7 @@ main {
 }
 
 .aside {
-    border: 1px solid red;
+    /* border: 1px solid red; */
     display: flex;
     flex-direction: column;
     /* justify-content: space-between; */
@@ -108,6 +108,10 @@ main {
     .aside {
         width: 250px;
         flex-shrink: 0;
+        /*Define la altura total de la pantalla*/
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
     }
 
     .aside__content {
@@ -115,17 +119,27 @@ main {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        /* height: 100%; */
+        /* ocupa todo el alto restante con el .aside */
+        flex:1;
     }
     .aside__content__nav {
         border: 1px solid greenyellow;
         display: flex;
-        flex-direction: column;
-        /* justify-content: space-between; */
+        flex-direction: column;        
     }
 
     .aside__content__down {
         display:flex;
+        flex-direction: column;
+        /* gap: 4rem; */
+    }
+    .aside__weather {
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 2rem;
+    }
+    .aside__address{
+        display: flex;
         flex-direction: column;
     }
 
@@ -158,6 +172,7 @@ main {
     /* height: 100%; */
     height: 375px;
     transform: rotate(0deg);
+    background-color: var(--Neutral-100);
 }
 
 .booking__card--img {
@@ -173,6 +188,7 @@ main {
     /* height: 100%; */
     height: 375px;
     transform: rotate(0deg);
+    background-color:var(--Terracotta-500);
 }
 
 
@@ -210,18 +226,21 @@ main {
         position: relative;
         /* border: 1px solid black; */
         flex-direction: row;
-        justify-content: space-around;
+        justify-content: center;
+        /* align-items: center; */
     }
 
     .booking__card--left {
         transform: rotate(-15deg);
+        /* transform-origin: bottom; */
     }
 
-    .booking__card--img {
+    .booking__card--p {
         position: absolute;
 
-        width: 60px;
-        height: 60px;
+        padding-bottom: 1rem;
+        /* width: 60px;
+        height: 60px; */
 
         left: 50%;
         bottom: 0;
@@ -231,6 +250,7 @@ main {
 
     .booking__card--right {
         transform: rotate(15deg);
+        z-index: 1;
     }
 
     .cards {
