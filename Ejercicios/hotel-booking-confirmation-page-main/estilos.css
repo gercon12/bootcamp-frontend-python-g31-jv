@@ -34,8 +34,8 @@
 
     --max-width: 375px;
 
-    --card-width: 275px;
-    --card-height: 275px;
+    --card-width: 300px;
+    --card-height: 250px;
 
 }
 
@@ -54,7 +54,7 @@ body {
 }
 
 .layout {
-    border: 1px solid salmon;
+    border: 1px dotted salmon;
     display: flex;
     flex-direction: column;
     /* height: inherit; */
@@ -64,8 +64,9 @@ body {
 }
 
 main {
-    /* flex:1;
+    /* flex: 1;
     min-width: 0; */
+
     width: 100%;
 }
 
@@ -87,8 +88,6 @@ main {
 
 .aside__content {
     display: none;
-
-    /* height: 100%; */
 }
 
 .header {
@@ -120,37 +119,43 @@ main {
         flex-direction: column;
         justify-content: space-between;
         /* ocupa todo el alto restante con el .aside */
-        flex:1;
+        flex: 1;
     }
+
     .aside__content__nav {
         border: 1px solid greenyellow;
         display: flex;
-        flex-direction: column;        
+        flex-direction: column;
     }
 
     .aside__content__down {
-        display:flex;
+        display: flex;
         flex-direction: column;
         /* gap: 4rem; */
     }
+
     .aside__weather {
         display: flex;
         flex-direction: column;
         padding-bottom: 2rem;
     }
-    .aside__address{
+
+    .aside__address {
         display: flex;
         flex-direction: column;
     }
 
     main {
-        flex: 1;
-        min-width: 0;
+        /* flex: 1;
+        min-width: 0; */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
     }
 
-     .header {
+    .header {
         width: 100%;
-    } 
+    }
 }
 
 
@@ -175,10 +180,9 @@ main {
     background-color: var(--Neutral-100);
 }
 
-.booking__card--img {
-    width: 60px;
-    height: 60px;
-    flex-shrink: 0;
+.booking__card--p {
+    /* border: 1px solid olivedrab; */
+    display: none;
 }
 
 .booking__card--right {
@@ -188,7 +192,7 @@ main {
     /* height: 100%; */
     height: 375px;
     transform: rotate(0deg);
-    background-color:var(--Terracotta-500);
+    background-color: var(--Terracotta-500);
 }
 
 
@@ -198,6 +202,7 @@ main {
     flex-direction: column;
     width: 100%;
     gap: 2rem;
+    padding-bottom: 3rem;
 }
 
 .card__01 {
@@ -224,18 +229,18 @@ main {
 
     .booking {
         position: relative;
-        /* border: 1px solid black; */
         flex-direction: row;
         justify-content: center;
-        /* align-items: center; */
+        gap:0;
     }
 
     .booking__card--left {
-        transform: rotate(-15deg);
+        transform: rotate(-8deg);
         /* transform-origin: bottom; */
     }
 
     .booking__card--p {
+        display: block;
         position: absolute;
 
         padding-bottom: 1rem;
@@ -249,7 +254,7 @@ main {
     }
 
     .booking__card--right {
-        transform: rotate(15deg);
+        transform: rotate(8deg);
         z-index: 1;
     }
 
