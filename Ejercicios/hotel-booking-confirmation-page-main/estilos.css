@@ -86,6 +86,8 @@ main {
     flex-direction: row;
     align-items: center;
     gap:1rem;
+    width: 95%;
+    border-bottom: 1px solid var(--Neutral-400);
 }
 
 .aside__logo__text{
@@ -133,24 +135,31 @@ main {
     }
 
     .aside__content {
-        border: 1px solid black;
+        /* border: 1px solid black; */
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         /* ocupa todo el alto restante con el .aside */
         flex: 1;
+        border-right: 1px solid var(--Neutral-400);
     }
 
     .aside__content__nav {
         /* border: 1px solid greenyellow; */
         display: flex;
         flex-direction: column;
+        /* justify-content: center; */
         gap: 1rem;
         padding-left: 1rem;
+        
     }
 
     .aside__nav_item {
-        height: 2rem;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        height: 3rem;
         color:black;
         text-decoration: none;
 
@@ -161,21 +170,35 @@ main {
 
     }
 
+
     .aside__content__down {
         display: flex;
         flex-direction: column;
-        /* gap: 4rem; */
+        gap: 2rem;
+        padding: 0 0.75rem 0 0.75rem;
+
     }
 
     .aside__weather {
         display: flex;
         flex-direction: column;
-        padding-bottom: 2rem;
+        justify-content: center;
+        gap:0.5rem;
+        /* padding-bottom: 2rem; */
+        background-color: var(--Sun-200);
+        height: 100px;
+        padding-left: 0.75rem;
+        /* padding-bottom: 0.75rem; */
+        border-radius: 0.75rem;
+        
     }
 
     .aside__address {
         display: flex;
         flex-direction: column;
+        gap: 0.5rem;
+        padding-top: 1rem;
+        border-top: 1px solid var(--Neutral-400);
     }
 
     main {
