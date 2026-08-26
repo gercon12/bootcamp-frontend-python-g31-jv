@@ -81,10 +81,29 @@ main {
 
 
 .aside__logo {
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
     display: flex;
     flex-direction: row;
+    align-items: center;
+    gap:1rem;
 }
+
+.aside__logo__text{
+    display: flex;
+    flex-direction: column;
+}
+
+.aside__logo__text span:nth-child(1) {
+    color: var(--Terracotta-500);
+    font-style:italic;
+    font-weight: 600;
+}
+
+.aside__logo__text span:nth-child(2) {
+    color: black;
+}
+
+
 
 .aside__content {
     display: none;
@@ -123,9 +142,23 @@ main {
     }
 
     .aside__content__nav {
-        border: 1px solid greenyellow;
+        /* border: 1px solid greenyellow; */
         display: flex;
         flex-direction: column;
+        gap: 1rem;
+        padding-left: 1rem;
+    }
+
+    .aside__nav_item {
+        height: 2rem;
+        color:black;
+        text-decoration: none;
+
+    }
+
+    .aside__nav_item:hover{
+        background-color: var(--Neutral-50);
+
     }
 
     .aside__content__down {
