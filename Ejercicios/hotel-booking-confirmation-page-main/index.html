@@ -8,6 +8,12 @@
 
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap"
+    rel="stylesheet">
+
   <link rel="stylesheet" href="estilos.css">
 
   <title>Hotel booking confirmation page</title>
@@ -22,7 +28,7 @@
     <aside class="aside">
 
       <div class="aside__logo">
-        <img src="assets/images/icon-sun.svg" alt="">
+        <img src="assets/images/illustration-sun.svg" alt="">
         <div class="aside__logo__text">
           <span>Maison</span>
           <span>Soleil</span>
@@ -33,17 +39,18 @@
       <div class="aside__content">
 
         <nav class="aside__content__nav">
-          <a href="" class="aside__nav_item">Your stay <span>1</span></a>
-          <a href="" class="aside__nav_item">The house</a>
-          <a href="" class="aside__nav_item">Around town</a>
-          <a href="" class="aside__nav_item">Breakfast</a>
-          <a href="" class="aside__nav_item">Messages</a>
+          <a href="" class="aside__nav_item"><img src="assets/images/icon-bed.svg" alt=""> Your stay <span>1</span></a>
+          <a href="" class="aside__nav_item"><img src="assets/images/icon-house.svg" alt=""> The house</a>
+          <a href="" class="aside__nav_item"><img src="assets/images/icon-pin.svg" alt=""> Around town</a>
+          <a href="" class="aside__nav_item"><img src="assets/images/icon-breakfast-outline.svg" alt=""> Breakfast</a>
+          <a href="" class="aside__nav_item"><img src="assets/images/icon-mail.svg" alt=""> Messages</a>
         </nav>
 
         <!-- Local weather -->
         <div class="aside__content__down">
 
           <div class="aside__weather">
+            <img class="aside__weather__img" src="assets/images/icon-weather.svg" alt="">
             <span>Today in Cassis</span>
             <span>27°</span>
             <span>Sunny · light breeze</span>
@@ -69,7 +76,7 @@
       <header class="header">
         <div class="header__info">
           <span>Booking · Confirmed</span>
-          <span>Bienvenue,</span><span>Lucia.</span>
+          <div class="header__info__B">Bienvenue,<span>Lucia.</span></div>
         </div>
         <div class="header__button">
           <button>Print receipt</button>
