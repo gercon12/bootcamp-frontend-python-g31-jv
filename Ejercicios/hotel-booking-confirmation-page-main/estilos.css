@@ -80,7 +80,7 @@ main {
 .aside {
     /* border: 1px solid red; */
     display: flex;
-    flex-direction: column;     
+    flex-direction: column;
 }
 
 .aside__logo {
@@ -90,7 +90,7 @@ main {
     align-items: center;
     gap: 1rem;
     /* width: 95%; */
-    
+
     border-bottom: 1px solid var(--Neutral-400);
 }
 
@@ -119,37 +119,60 @@ main {
 }
 
 .header {
-    border: 1px solid green;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     /* width: 100%; */
 }
 
-    .header__info {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-    }
+.header__info {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
 
-    .header__info > span {
-        color: var(--Neutral-600);
-        text-transform: uppercase;
-    }
+.header__info>span {
+    color: var(--Neutral-600);
+    text-transform: uppercase;
+}
 
-    .header__info__B {
-        display: flex;
-        flex-direction: row;
-        gap: 0.5rem;
-        font-size: 3rem;
-    }
+.header__info__B {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    font-size: 3rem;
+}
 
-    .header__info__B span{
-        font-family: var(--font-family-F);
-        color: var(--Terracotta-600);
-        font-style: italic;
-    }
+.header__info__B span {
+    font-family: var(--font-family-F);
+    color: var(--Terracotta-600);
+    font-style: italic;
+}
 
+.header__button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+}
+
+.header__button button:nth-child(1) {
+    border: none;
+    background-color: white;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    border-radius: 1rem;
+}
+
+.header__button button:nth-child(2) {   
+    background-color: var(--Neutral-900);
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    border-radius: 1rem;
+    color: white;
+}
+
+.header__button button:hover{
+    border: 2px solid var(--Terracotta-700);
+}
 
 
 @media (min-width: 992px) {
@@ -186,7 +209,7 @@ main {
         display: flex;
         flex-direction: row;
         align-items: center;
-        gap:0.75rem;
+        gap: 0.75rem;
         height: 3rem;
         color: black;
         text-decoration: none;
@@ -194,6 +217,8 @@ main {
 
     .aside__nav_item:hover {
         background-color: var(--Neutral-50);
+        border:1px solid var(--Terracotta-700);
+        border-radius: 8px;
 
     }
 
@@ -206,7 +231,7 @@ main {
     }
 
     .aside__weather {
-        position:relative;
+        position: relative;
         overflow: hidden;
 
         display: flex;
@@ -216,9 +241,9 @@ main {
 
         background-color: var(--Sun-200);
         height: 100px;
-        padding-left: 0.75rem;        
+        padding-left: 0.75rem;
         border-radius: 0.75rem;
-        
+
         font-family: var(--font-family-Mono);
         font-size: 0.75rem;
     }
@@ -232,10 +257,10 @@ main {
         font-family: var(--font-family-F);
     }
 
-    .aside__weather__img{
-        position:absolute;
+    .aside__weather__img {
+        position: absolute;
         right: -40px;
-        top:-40px;
+        top: -40px;
         width: 100px;
         height: 100px;
     }
@@ -266,31 +291,6 @@ main {
         justify-content: space-between;
         padding: 2rem 2rem 0rem 2rem;
     }
-
-    /* .header__info {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    .header__info > span {
-        color: var(--Neutral-600);
-        text-transform: uppercase;
-    }
-
-    .header__info__B {
-        display: flex;
-        flex-direction: row;
-        gap: 0.5rem;
-        font-size: 3rem;
-    }
-
-    .header__info__B span{
-        font-family: var(--font-family-F);
-        color: var(--Terracotta-600);
-        font-style: italic;
-    } */
-
 }
 
 
@@ -371,7 +371,6 @@ main {
 
     .booking__card--left {
         transform: rotate(-8deg);
-        /* transform-origin: bottom; */
     }
 
     .booking__card--p {
@@ -379,8 +378,6 @@ main {
         position: absolute;
 
         padding-bottom: 1rem;
-        /* width: 60px;
-        height: 60px; */
 
         left: 50%;
         bottom: 0;
