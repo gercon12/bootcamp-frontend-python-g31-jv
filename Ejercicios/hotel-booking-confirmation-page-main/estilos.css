@@ -306,6 +306,8 @@ main {
 }
 
 .booking__card--left {
+    display:flex;
+    flex-direction: column;
     border: 1px solid orange;
     width: 100%;
     max-width: 375px;
@@ -313,6 +315,24 @@ main {
     height: 375px;
     transform: rotate(0deg);
     background-color: var(--Neutral-100);
+    padding: 1rem 1rem 1rem 1rem;
+}
+
+.booking__card__l1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.booking__card__r {
+    display: flex;
+    flex-direction: column;
+    padding: 0rem 0 1rem 0;
+}
+
+.booking__card_l {
+    display: flex;
+    flex-direction: column;
 }
 
 .booking__card--p {

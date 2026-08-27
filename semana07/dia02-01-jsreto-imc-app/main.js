@@ -47,16 +47,16 @@ imcButton.addEventListener('click', (event) => {
 
     //Comparar rango de valores de IMC
     if (resultadoImc < 18.5) {
-        imcResultado.textContent = ' Baja'
+        imcResultado.textContent = resultadoImc + ', ' + ' Baja'
         imcResultado.classList.add('text-yellow-500')
     } else if (resultadoImc < 25) {
-        imcResultado.textContent = ' Normal'
+        imcResultado.textContent = resultadoImc + ', ' +' Normal'
         imcResultado.classList.add('text-green-500')
     } else if (resultadoImc < 30) {
-        imcResultado.textContent = ' Sobrepeso'
+        imcResultado.textContent = resultadoImc + ', ' + ' Sobrepeso'
         imcResultado.classList.add('text-orange-500')
     } else {
-        imcResultado.textContent = 'Obeso'
+        imcResultado.textContent = resultadoImc + ', ' + 'Obeso'
         imcResultado.classList.add('text-red-500')
         imcParrafo.classList.add('borde-parpadeante')
     }
