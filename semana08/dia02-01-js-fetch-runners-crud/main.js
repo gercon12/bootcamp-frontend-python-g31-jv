@@ -164,19 +164,15 @@ if (!response.ok) {
 }
 
   console.log('el corredor se guardo correctamente')
-
   
   //actualizar el listado de corredores y limpien el formulario
-  
-  
+    
   cargarCorredores()
   
   corredor.form.reset()
 } catch(error) {
   console.log(error)
 }
-
-
 })
 
 //Eliminar Corredor
@@ -196,16 +192,67 @@ lista.addEventListener('click', async (event) => {
         method: 'DELETE'
       }
 
-      const response = await fetch(`${API_URL/$id}`, opciones)
+      const response = await fetch(`${API_URL}/${id}`, opciones)
 
       cargarCorredores()
     }
 
   }
-
-
 })
- //TODO implementar actualizar datos corredor
 
+ //TODO implementar actualizar datos corredor
+lista.addEventListener('click', async (event) => {
+  console.log({target: event.target})
+
+
+const corredorForm = document.forms['form']
+
+const nombre = corredorForm.nombre.value
+const edad = corredorForm.edad.value
+const categoria = corredorForm.categoria.value
+const dorsal = corredorForm.dorsal.value
+
+console.log(nombre,edad,categoria,dorsal)
+
+//2 crear al corredor en el servidor
+
+const nuevoCorredor = {
+  nombre,
+  edad,
+  categoria,
+  dorsal
+}
+
+const opciones = {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify(nuevoCorredor) //convierte a cadena de texto
+}
+
+
+
+
+  if (event.target.tagName==='BUTTON') {
+    const confirmado = confirm('Desea actualizar datos?')
+    if(!confirmado) {
+      return
+    }
+    const{action, id} = event.target.dataset
+     if (action ==='editar') {
+      const opciones = {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(nuevoCorredor/id)
+      }
+
+     }
+
+  }
+  
+})
 
 cargarCorredores()
