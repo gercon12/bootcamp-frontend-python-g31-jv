@@ -1,0 +1,35 @@
+### Listar todos los corredores
+
+GET https://apibox.vercel.app/wiCGqgAcbyEvefce2mjzfyyJKVTR6ivB/api/corredores
+
+### Crear un corredor
+
+POST https://apibox.vercel.app/wiCGqgAcbyEvefce2mjzfyyJKVTR6ivB/api/corredores
+Content-Type: application/json
+
+{
+    "nombre": "Prueba",
+    "edad": 99,
+    "categoria": "42k",
+    "dorsal": "999"
+}
+
+### Obtener la informacion de un corredor
+
+GET https://apibox.vercel.app/wiCGqgAcbyEvefce2mjzfyyJKVTR6ivB/api/corredores/862e369a-420b-4c69-82cb-5d923bd00b8f
+
+### Borrar un corredor
+
+DELETE https://apibox.vercel.app/wiCGqgAcbyEvefce2mjzfyyJKVTR6ivB/api/corredores/59ea230c-0210-4103-b697-ddbc10ec4240
+
+### Actualizar un corredor
+
+PUT https://apibox.vercel.app/wiCGqgAcbyEvefce2mjzfyyJKVTR6ivB/api/corredores/862e369a-420b-4c69-82cb-5d923bd00b8f
+Content-Type: application/json
+
+{
+    "nombre": "Leonardo DiCaprio",
+    "edad": 45,
+    "categoria": "5k",
+    "dorsal": "900"
+}
