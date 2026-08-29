@@ -97,8 +97,8 @@
 				</div>
 
 				<ul id="lista" class="space-y-3 mb-4">
-					<li class="flex items-center gap-4 bg-white border border-neutral-200 rounded-xl px-4 py-3 hover:border-neutral-300 transition-colors">
-						<!-- <div class="shrink-0 w-14 h-14 rounded-lg border border-neutral-200 flex items-center justify-center bg-neutral-50">
+					<!-- <li class="flex items-center gap-4 bg-white border border-neutral-200 rounded-xl px-4 py-3 hover:border-neutral-300 transition-colors">
+						<div class="shrink-0 w-14 h-14 rounded-lg border border-neutral-200 flex items-center justify-center bg-neutral-50">
               <span class="font-mono text-base font-medium">101</span>
             </div>
 
@@ -117,16 +117,16 @@
               <button data-action="eliminar" data-id="${corredor.id}" class="text-xs text-neutral-400 hover:text-red-500 transition-colors">
                 Eliminar
               </button>
-            </div> -->
-					</li>
+            </div>
+					</li> -->
 				</ul>
 
-				<div id="vacio" class="hidden--off text-center py-16 border border-dashed border-neutral-200 rounded-xl">
+				<div id="vacio" class="hidden text-center py-16 border border-dashed border-neutral-200 rounded-xl">
 					<p class="text-lg font-semibold text-neutral-400 mb-1">Sin corredores aún</p>
 					<p class="text-sm text-neutral-400">La línea de salida está vacía. Inscribe al primero.</p>
 				</div>
 
-				<p id="loading" class="font-mono text-xs text-neutral-400 uppercase tracking-widest py-10 text-center">
+				<p id="loading" class="hidden font-mono text-xs text-neutral-400 uppercase tracking-widest py-10 text-center">
 					Cargando corredores...
 				</p>
 			</section>
@@ -141,6 +141,7 @@
 			</a>
 		</p>
 	</footer>
-	<script src="main.js"></script>
+
+  <script src="main.js"></script>
 </body>
 </html>
