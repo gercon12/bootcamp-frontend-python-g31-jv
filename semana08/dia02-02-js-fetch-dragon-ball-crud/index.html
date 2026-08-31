@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dragon Ball CRUD</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body class="bg-white min-h-screen font-sans">
+
+    <main class="border border-slate-400 max-w-6xl mx-auto px-6 py-16">
+
+        <header class="mb-10 flex items-end justify-between gap-6">
+            <div class="flex flex-col gap-4">
+                <p class="uppercase">Maraton G31 -2026</p>
+                <h1 class="text-4xl font-bold">Dragon Ball CRUD</h1>
+                <div class="flex flex-row items-center justify-center gap-6">
+                    <p>Gestiona tus personajes de Dragon Ball</p>
+                    <img src="images/esfera_dragon.svg" alt="esfera_dragon" class="w-15 h-15">
+                </div>
+            </div>
+            <div class="flex flex-col items-center gap-2">
+                <span id="contador" class="text-5xl">0</span>
+                <span class="uppercase">Personajes</span>
+            </div>
+        </header>
+
+        <div class="flex gap-4">
+
+            <div class="flex flex-col  w-[400px]">
+
+                <!-- Bloque Formulario -->
+                <form id="form" class="mb-12 border border-gray-300 rounded-xl p-6">
+                    <input type="hidden" id="personajeId">
+                    <p class="uppercase pb-2 text-orange-500 font-bold">Nuevo Personaje</p>
+
+                    <div class="flex flex-col gap-4 mb-4 ">
+                        <label class="block text-base font-bold text-neutral-500 mb-1">
+                            Nombre
+                            <input id="nombre" type="text" placeholder="Ej. Goku"
+                                class="w-full border border-gray-300 rounded-lg bg-transparent mt-1 px-1 py-2 text-base hover:bg-slate-100 outline-none">
+                        </label>
+
+                        <label class="block text-base font-bold text-neutral-500 mb-1">
+                            Imagen (URL)
+                            <input id="imagenUrl" type="url" placeholder="Ej. https://dragonball-api.com""
+                        class=" w-full border border-gray-300 rounded-lg bg-transparent mt-1 px-1 py-2 text-base
+                                hover:bg-slate-100 outline-none">
+                        </label>
+
+                        <label class="block text-base font-bold text-neutral-500 mb-1">
+                            Raza
+                            <input id="nombre" type="text" placeholder="Ej. Saiyan"
+                                class="w-full border border-gray-300 rounded-lg bg-transparent mt-1 px-1 py-2 text-base hover:bg-slate-100 outline-none">
+                        </label>
+
+
+                        <label class="block text-base font-bold text-neutral-500 mb-1">
+                            Género
+                            <select id="categoria"
+                                class="w-full border border-gray-300 rounded-lg bg-transparent mt-1 px-1 py-3 text-gray-400">
+                                <option value="">Elegir</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+
+                                <!-- <option value="Saiyan">Saiyan</option>
+                            <option value="Namekian">Namekian</option>
+                            <option value="Human">Human</option>
+                            <option value="Frieza Race">Frieza Race</option>
+                            <option value="Android">Android</option>
+                            <option value="Majin">Majin</option>
+                            <option value="God">God</option>
+                            <option value="Angel">Angel</option>
+                            <option value="Unknown">Unknown</option>
+                            <option value="Jiren Race">Jiren Race</option>
+                            <option value="Nucleico benigno">Nucleico benigno</option>
+                            <option value="Evil">Evil</option>
+                            <option value="Nucleico">Nucleico</option> -->
+
+                            </select>
+                        </label>
+
+                    </div>
+
+                    <!-- Seccion del boton -->
+                    <div>
+                        <button type="submit" id="submitBtn"
+                            class="w-full bg-orange-600 py-3 rounded-lg text-white hover:bg-orange-500">
+                            + Agregar Personaje
+                        </button>
+                    </div>
+
+                </form>
+
+
+                <!-- Bloque estructura JSON -->
+                <div class="border border-gray-300 rounded-lg mt-4">
+                    <div class="flex items-center gap-2 pl-6">
+                        <i data-lucide="lightbulb" class="w-5 h-5 text-orange-500"></i>
+                        <p class="pl-0 text-orange-500">Estructura del JSON</p>
+                    </div>
+
+                    <pre class="border border-gray-300 rounded-lg m-6 text-left">{
+"name": "Goku",
+"image": "https://...jpg",
+"race": "Sayian",
+"gender": "Male"
+}</pre>
+
+                </div>
+            </div>
+
+            <!-- Lista -->
+            <section>
+                <div>
+                    <h2>LISTA DE PERSONAJES</h2>
+                </div>
+
+                <ul id="lista">
+                    <!-- Bloque lista -->
+                    <li class="flex flex-row justify-between w-[600px] border border-gray-300 rounded-lg p-6">
+                        <div class="flex flex-row ">
+                            <div>
+                                <img src="" alt="">
+                            </div>
+
+                            <div>
+                                <p>Nombre</p>
+                                <div>
+                                    <span>Raza</span>
+                                    <span>Genero</span>
+                                </div>
+                            </div>
+
+                        </div>
+                            <div>
+                                <button>Editar</button>
+                                <button>Eliminar</button>
+                            </div>                           
+                    </li>
+
+                </ul>
+
+            </section>
+
+        </div>
+
+
+    </main>
+
+    <script>
+        lucide.createIcons();
+    </script>
+
+</body>
+
+</html>
