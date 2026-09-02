@@ -128,26 +128,26 @@
                     <li
                         class="flex items-center gap-4 bg-white border border-neutral-200 rounded-xl px-4 py-3 hover:border-neutral-300 transition-colors">
                         <div
-                            class="shrink-0 w-22 h-22 rounded-lg border border-neutral-200 flex items-center justify-center bg-neutral-50">
+                            class="shrink-0 w-22 h-22 overflow-hidden rounded-lg border border-neutral-200 flex items-center justify-center bg-neutral-50">
                             <span class="font-mono text-base font-medium"></span>
-                            <img src="https://dragonball-api.com/characters/goku_normal.webp" alt="Goku" class="w-20 h-20 rounded-lg">
+                            <img src="https://dragonball-api.com/characters/goku_normal.webp" alt="Goku"
+                                class="w-full h-full object-cover object-[50%_5%]">
                         </div>
 
                         <div class="flex-1 min-w-0">
                             <p class="text-sm font-bold truncate">Nombre</p>
                             <div class="flex items-center gap-2 mt-1">
-                                <span
-                                    class="text-[16px] font-mono px-1.5 py-0.5 rounded">Race</span>
-                                <span class="text-xs text-neutral-400">Gender</span>
+                                <span class="text-[16px] font-mono px-1.5 py-0.5 rounded">Race</span>
+                                <span class="text-[16px] font-mono px-1.5 py-0.5 rounded">Gender</span>
                             </div>
                         </div>
 
                         <div class="flex items-center gap-3 shrink-0">
-                            <button data-action="editar" data-id="${corredor.id}"
+                            <button data-action="editar" data-id="${personaje.id}"
                                 class="text-xs text-blue-600 hover:text-blue-700 transition-colors border border-blue-600 rounded-lg px-6 py-2">
                                 Editar
                             </button>
-                            <button data-action="eliminar" data-id="${corredor.id}"
+                            <button data-action="eliminar" data-id="${personaje.id}"
                                 class="text-xs text-red-500 hover:text-red-700 transition-colors border border-red-500 rounded-lg px-6 py-2">
                                 Eliminar
                             </button>
@@ -155,6 +155,20 @@
                     </li>
 
                 </ul>
+
+            <!-- Cargando Personajes -->
+                <div id="vacio" class="hidden text-center py-16 border border-dashed border-neutral-200 rounded-xl">
+                    <p class="text-lg font-semibold text-neutral-400 mb-1">Sin personajes aún</p>
+                    <p class="text-sm text-neutral-400">La línea de salida está vacía. Inscribe al primero.</p>
+                </div>
+
+                <p id="loading"
+                    class="hidden font-mono text-xs text-neutral-400 uppercase tracking-widest py-10 text-center">
+                    Cargando personajes...
+                </p>
+
+
+
 
             </section>
         </div>
