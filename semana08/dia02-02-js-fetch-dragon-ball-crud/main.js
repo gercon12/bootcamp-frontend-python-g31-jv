@@ -62,6 +62,8 @@ const renderPersonajes = (personajes = []) => {
     raceClass = 'text-blue-600 border border-blue-600 px-1.5 py-0.5 rounded bg-blue-50'
   } else if (race === 'human') {
     raceClass = 'text-orange-600 border border-orange-600 px-1.5 py-0.5 rounded bg-orange-50'
+  } else if (race === 'namekian') {
+    raceClass = 'text-purple-600 border border-purple-600 px-1.5 py-0.5 rounded bg-purple-50'
   }
 
 
