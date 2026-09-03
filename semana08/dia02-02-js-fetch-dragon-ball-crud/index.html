@@ -11,15 +11,15 @@
 
 <body class="bg-white min-h-screen font-sans">
 
-    <main class="border border-slate-400 max-w-6xl mx-auto px-6 py-16">
+    <main class="border border-slate-400 max-w-6xl mx-auto px-6 py-4">
 
-        <header class="mb-10 flex items-end justify-between gap-6">
-            <div class="flex flex-col gap-4">
+        <header class="mb-10 flex items-end justify-between gap-6 border border-blue-600">
+            <div class="flex flex-col gap-1">
                 <p class="uppercase">Maraton G31 -2026</p>
                 <h1 class="text-4xl font-bold">Dragon Ball CRUD</h1>
-                <div class="flex flex-row items-center justify-center gap-6">
+                <div class="flex flex-row items-center justify-center">
                     <p>Gestiona tus personajes de Dragon Ball</p>
-                    <img src="images/esfera_dragon.svg" alt="esfera_dragon" class="w-15 h-15">
+                    <img src="images/esfera_dragon.svg" alt="esfera_dragon" class="w-12 h-12">
                 </div>
             </div>
             <div class="flex flex-col items-center gap-2">
@@ -42,44 +42,47 @@
                             Nombre
                             <input id="nombre" type="text" placeholder="Ej. Goku"
                                 class="w-full border border-gray-300 rounded-lg bg-transparent mt-1 px-1 py-2 text-base hover:bg-slate-100 outline-none">
+                            <p id="nombreError" class="text-red-500 text-sm mt-1"></p>
                         </label>
 
                         <label class="block text-base font-bold text-neutral-500 mb-1">
                             Imagen (URL)
-                            <input id="imagenUrl" type="url" placeholder="Ej. https://dragonball-api.com""
-                        class=" w-full border border-gray-300 rounded-lg bg-transparent mt-1 px-1 py-2 text-base
+                            <input id="imagen" type="url" placeholder="Ej. https://dragonball-api.com" class=" w-full border border-gray-300 rounded-lg bg-transparent mt-1 px-1 py-2 text-base
                                 hover:bg-slate-100 outline-none">
+                                <p id="imagenError" class="text-red-500 text-sm mt-1"></p>
                         </label>
 
                         <label class="block text-base font-bold text-neutral-500 mb-1">
                             Raza
-                            <input id="nombre" type="text" placeholder="Ej. Saiyan"
+                            <!-- <input id="raza" type="text" placeholder="Ej. Saiyan"
                                 class="w-full border border-gray-300 rounded-lg bg-transparent mt-1 px-1 py-2 text-base hover:bg-slate-100 outline-none">
+ -->
+                            <select id="raza"
+                                class="w-full border border-gray-300 rounded-lg bg-transparent mt-1 px-1 py-3 text-gray-400 hover:bg-slate-100 outline-none">
+                                <option value="Saiyan">Saiyan</option>
+                                <option value="Namekian">Namekian</option>
+                                <option value="Human">Human</option>
+                                <option value="Frieza Race">Frieza Race</option>
+                                <option value="Android">Android</option>
+                                <option value="Majin">Majin</option>
+                                <option value="God">God</option>
+                                <option value="Angel">Angel</option>
+                                <option value="Unknown">Unknown</option>
+                                <option value="Jiren Race">Jiren Race</option>
+                                <option value="Nucleico benigno">Nucleico benigno</option>
+                                <option value="Evil">Evil</option>
+                                <option value="Nucleico">Nucleico</option>
+                            </select>
                         </label>
 
 
                         <label class="block text-base font-bold text-neutral-500 mb-1">
                             Género
-                            <select id="categoria"
-                                class="w-full border border-gray-300 rounded-lg bg-transparent mt-1 px-1 py-3 text-gray-400">
+                            <select id="genero"
+                                class="w-full border border-gray-300 rounded-lg bg-transparent mt-1 px-1 py-3 text-gray-400 hover:bg-slate-100 outline-none">
                                 <option value="">Elegir</option>
                                 <option value="Male">Male</option>
                                 <option value="Female">Female</option>
-
-                                <!-- <option value="Saiyan">Saiyan</option>
-                            <option value="Namekian">Namekian</option>
-                            <option value="Human">Human</option>
-                            <option value="Frieza Race">Frieza Race</option>
-                            <option value="Android">Android</option>
-                            <option value="Majin">Majin</option>
-                            <option value="God">God</option>
-                            <option value="Angel">Angel</option>
-                            <option value="Unknown">Unknown</option>
-                            <option value="Jiren Race">Jiren Race</option>
-                            <option value="Nucleico benigno">Nucleico benigno</option>
-                            <option value="Evil">Evil</option>
-                            <option value="Nucleico">Nucleico</option> -->
-
                             </select>
                         </label>
 
@@ -104,10 +107,10 @@
                     </div>
 
                     <pre class="border border-gray-300 rounded-lg m-6 text-left">{
-"name": "Goku",
-"image": "https://...jpg",
-"race": "Saiyan",
-"gender": "Male"
+"nombre": "Goku",
+"imagen": "https://...jpg",
+"raza": "Saiyan",
+"genero": "Male"
 }</pre>
 
                 </div>
@@ -154,11 +157,9 @@
                         </div>
                     </li> -->
 
-
-
                 </ul>
 
-            <!-- Cargando Personajes -->
+                <!-- Cargando Personajes -->
                 <div id="vacio" class="hidden text-center py-16 border border-dashed border-neutral-200 rounded-xl">
                     <p class="text-lg font-semibold text-neutral-400 mb-1">Sin personajes aún</p>
                     <p class="text-sm text-neutral-400">La línea de salida está vacía. Inscribe al primero.</p>
@@ -168,9 +169,6 @@
                     class="hidden font-mono text-xs text-neutral-400 uppercase tracking-widest py-10 text-center">
                     Cargando personajes...
                 </p>
-
-
-
 
             </section>
         </div>
