@@ -131,7 +131,7 @@ const renderPersonajes = (personajesPagina = []) => {
     const razaClass = razaFunction(personaje)
 
     // Agregar estilos al elemento
-    li.className = 'flex items-center gap-4 bg-white border border-neutral-200 rounded-xl px-4 py-3 hover:border-neutral-300 transition-colors mb-3'
+    li.className = 'flex items-center gap-4 bg-white border border-neutral-200 rounded-xl px-4 py-3 hover:border-neutral-300 hover:bg-gray-100 transition-colors mb-3'
 
 
     // Crear el contenido del personaje
