@@ -177,6 +177,7 @@ form.addEventListener('submit', async (event) => {
   //limpiar contenido de mensaje  'nombre invalido', URL invalido'
   document.querySelector('#nombreError').textContent = ''
   document.querySelector('#imagenError').textContent = ''
+  document.querySelector('#generoError').textContent = ''
 
   console.log('Guardando personaje')
 
@@ -198,6 +199,8 @@ form.addEventListener('submit', async (event) => {
   } else if (imagen.trim() === '') {
     document.querySelector('#imagenError').textContent = 'URL inválida'
     return
+  } else if (genero ==='Elegir') {
+    document.querySelector('#generoError').textContent = 'Genero invalido'
   }
 
 
