@@ -1,5 +1,6 @@
-const API_URL = 'https://apibox.vercel.app/wiCGqgAcbyEvefce2mjzfyyJKVTR6ivB/api/dragon-ball-crud'
+//const API_URL = 'https://apibox.vercel.app/wiCGqgAcbyEvefce2mjzfyyJKVTR6ivB/api/dragon-ball-crud'
 
+const API_URL = '/.netlify/functions/personajes'
 
 //----------------------Variables--------------------------
 let personajes = []
