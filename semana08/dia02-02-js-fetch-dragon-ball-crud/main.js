@@ -1,6 +1,6 @@
-const API_URL = 'https://apibox.vercel.app/wiCGqgAcbyEvefce2mjzfyyJKVTR6ivB/api/dragon-ball-crud'
+//const API_URL = 'https://apibox.vercel.app/wiCGqgAcbyEvefce2mjzfyyJKVTR6ivB/api/dragon-ball-crud'
 
-//const API_URL = '/.netlify/functions/personajes'
+const API_URL = '/.netlify/functions/personajes'
 
 //----------------------Variables--------------------------
 let personajes = []
@@ -272,7 +272,11 @@ lista.addEventListener('click', async (event) => {
       }
 
       //Eliminar personaje usando su ID
-      const response = await fetch(`${API_URL}/${id}`, opciones)
+      //const response = await fetch(`${API_URL}/${id}`, opciones)
+      const response = await fetch(
+        `${API_URL}?id=${id}`,
+        opciones
+      )
 
       //Verificar respuesta
       if (!response.ok) {
@@ -317,7 +321,11 @@ lista.addEventListener('click', async (event) => {
       }
 
       //Actualizar personaje con su ID
-      const response = await fetch(`${API_URL}/${id}`, opciones)
+      //const response = await fetch(`${API_URL}/${id}`, opciones)
+      const response = await fetch(
+        `${API_URL}?id=${id}`,
+        opciones
+      )
 
       //Verificar respuesta
       if (!response.ok) {
