@@ -52,7 +52,7 @@
                             Imagen (URL)
                             <input id="imagen" type="url" placeholder="Ej. https://dragonball-api.com" class=" w-full border border-gray-300 rounded-lg bg-transparent mt-1 px-1 py-2 text-base
                                 hover:bg-slate-100 outline-none">
-                                <p id="imagenError" class="text-red-500 text-sm mt-1"></p>
+                            <p id="imagenError" class="text-red-500 text-sm mt-1"></p>
                         </label>
 
                         <label class="block text-base font-bold text-neutral-500 mb-1">
@@ -119,8 +119,9 @@
                 </div>
             </div>
 
+
             <!-- Lista -->
-            <section class="w-full">
+            <section class="w-full relative min-h-[600px] pb-16">
                 <div class="flex items-center justify-between mb-4">
                     <h2 class="font-mono text-[16px] uppercase tracking-widest text-blue-500 font-bold">Lista de
                         Personajes
@@ -173,7 +174,13 @@
                     Cargando personajes...
                 </p>
 
+
+                <div id="paginacion" 
+                class="absolute bottom-0 left-1/2 flex justify-center items-center gap-4 mt-8"></div>
+
             </section>
+
+
         </div>
 
     </main>

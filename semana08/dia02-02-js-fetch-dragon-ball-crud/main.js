@@ -1,9 +1,23 @@
 const API_URL = 'https://apibox.vercel.app/wiCGqgAcbyEvefce2mjzfyyJKVTR6ivB/api/dragon-ball-crud'
 
 
+//----------------------Variables--------------------------
+let personajes = []
+let paginaActual = 1
+
+const personajesPorPagina = 5
+
+const obtenerPersonajesPagina = () => {
+
+  const inicio = (paginaActual - 1) * personajesPorPagina
+  const fin = inicio + personajesPorPagina
+
+  return personajes.slice(inicio, fin)
+}
 //----------------------Cargar Personajes--------------------------
 
 const cargarPersonajes = async () => {
+
   // Mostrar indicador de carga
   document.querySelector('#loading').classList.toggle('hidden')
 
@@ -13,11 +27,24 @@ const cargarPersonajes = async () => {
   // Convertir la respuesta a JavaScript
   const data = await respuesta.json()
 
+  //obtener personajes
+  personajes = data
+
+  //Eliminar ultimo personaje lista
+  const totalPaginas = Math.ceil(personajes.length / personajesPorPagina)
+
+  if (paginaActual > totalPaginas) {
+    paginaActual = totalPaginas || 1
+  }
+
   // Ocultar indicador de carga
   document.querySelector('#loading').classList.toggle('hidden')
 
+  const personajesPagina = obtenerPersonajesPagina()
+
   // Mostrar los corredores
-  renderPersonajes(data)
+  renderPersonajes(personajesPagina)
+  renderPaginacion()
 }
 
 //----------------------Renderizar Personajes--------------------------
@@ -46,7 +73,7 @@ function razaFunction(personaje) {
     razaClass = 'text-orange-600 border border-orange-600 px-1.5 py-0.5 rounded bg-orange-50 hover:bg-orange-200'
   } else if (raza === 'namekian') {
     razaClass = 'text-purple-600 border border-purple-600 px-1.5 py-0.5 rounded bg-purple-50 hover:bg-purple-200'
-  }else if (raza === 'android') {
+  } else if (raza === 'android') {
     razaClass = 'text-gray-600 border border-gray-600 px-1.5 py-0.5 rounded bg-gray-50 hover:bg-gray-200'
   } else if (raza === 'frieza race') {
     razaClass = 'text-red-600 border border-red-600 px-1.5 py-0.5 rounded bg-red-50 hover:bg-red-200'
@@ -69,20 +96,29 @@ function razaFunction(personaje) {
 }
 
 //Renderizar personajes
-const renderPersonajes = (personajes = []) => {
 
-  // Seleccionar la lista donde se mostrarán los personajes
-  const lista = document.querySelector('#lista')
+// Seleccionar la lista donde se mostrarán los personajes
+const lista = document.querySelector('#lista')
+
+const renderPersonajes = (personajesPagina = []) => {
 
   //limpiar lista antes de mostrar los datos
   lista.innerHTML = ''
 
   // Actualizar el contador de personajes
   const contador = document.querySelector('#contador')
-  contador.textContent = personajes.length
+  //contador.textContent = personajes.length
+
+  const mostrados = Math.min(
+    paginaActual * personajesPorPagina,
+    personajes.length
+  )
+
+  contador.textContent = `${mostrados}/${personajes.length}`
+
 
   // Recorrer cada personaje
-  personajes.forEach(personaje => {
+  personajesPagina.forEach(personaje => {
 
     // Crear elemento <li>
     const li = document.createElement('li')
@@ -101,7 +137,7 @@ const renderPersonajes = (personajes = []) => {
     li.innerHTML = `
 
 
-      <div class="shrink-0 w-22 h-22 overflow-hidden rounded-lg border border-neutral-200 flex items-center justify-center bg-neutral-50">
+      <div class="shrink-0 w-26 h-26 overflow-hidden rounded-lg border border-neutral-200 flex items-center justify-center bg-neutral-50">
         <span class="font-mono text-base font-medium"></span>
         <img src="${personaje.imagen}" alt="${personaje.nombre}" class="w-full h-full object-cover object-[50%_5%]">
       </div>
@@ -127,6 +163,9 @@ const renderPersonajes = (personajes = []) => {
   })
 }
 
+
+
+
 //----------------------Crear el Personaje--------------------------
 const form = document.querySelector("#form")
 
@@ -151,7 +190,7 @@ form.addEventListener('submit', async (event) => {
 
   console.log(nombre, imagen, raza, genero)
 
-//Validar si el nombre y la url son datos validos
+  //Validar si el nombre y la url son datos validos
   if (nombre.trim() === '') {
     document.querySelector('#nombreError').textContent = 'Nombre inválido'
     return
@@ -205,6 +244,7 @@ form.addEventListener('submit', async (event) => {
 //----------------------Editar o Eliminar Personajes--------------------------
 
 lista.addEventListener('click', async (event) => {
+
   //Verificar que boton se ha presionado
   console.log({ target: event.target })
 
@@ -226,7 +266,7 @@ lista.addEventListener('click', async (event) => {
       }
 
       //Configurar opciones DELETE
-      opciones = {
+      const opciones = {
         method: 'DELETE',
       }
 
@@ -279,7 +319,7 @@ lista.addEventListener('click', async (event) => {
       const response = await fetch(`${API_URL}/${id}`, opciones)
 
       //Verificar respuesta
-      if (!response) {
+      if (!response.ok) {
         console.log('No se pudo editar personaje')
         return
       }
@@ -296,6 +336,48 @@ lista.addEventListener('click', async (event) => {
   }
 
 })
+
+
+//----------------------Paginacion--------------------------
+
+
+const renderPaginacion = () => {
+  const paginacion = document.querySelector('#paginacion')
+
+  paginacion.innerHTML = ''
+
+  const totalPaginas = Math.ceil(
+    personajes.length / personajesPorPagina
+  )
+
+  // Creacion de los botones
+
+  for (let pagina = 1; pagina <= totalPaginas; pagina++) {
+
+    const button = document.createElement('button')
+
+    button.textContent = pagina
+
+    //Formato boton activo
+    if (pagina === paginaActual) {
+      button.className = 'bg-blue-600 text-white border border-blue-600 px-3 py-1 rounded'
+    } else {
+      button.className = 'bg-white text-gray-700 border border-gray-300 px-3 py-1 rounded hover:bg-gray-100'
+    }
+
+    //Navegacion de botones
+    button.addEventListener('click', () => {
+      paginaActual = pagina
+
+      const personajesPagina = obtenerPersonajesPagina()
+
+      renderPersonajes(personajesPagina)
+      renderPaginacion()
+    })
+
+    paginacion.appendChild(button)
+  }
+}
 
 
 cargarPersonajes()
