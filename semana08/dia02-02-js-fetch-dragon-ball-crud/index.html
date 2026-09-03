@@ -11,13 +11,13 @@
 
 <body class="bg-white min-h-screen font-sans">
 
-    <main class="border border-slate-400 max-w-6xl mx-auto px-6 py-4">
+    <main class="border border-slate-200 rounded-xl max-w-6xl mx-auto px-6 py-4">
 
-        <header class="mb-10 flex items-end justify-between gap-6 border border-blue-600">
+        <header class="mb-10 flex items-end justify-between gap-6">
             <div class="flex flex-col gap-1">
-                <p class="uppercase">Maraton G31 -2026</p>
+                <p class="uppercase">Maratón G31 -2026</p>
                 <h1 class="text-4xl font-bold">Dragon Ball CRUD</h1>
-                <div class="flex flex-row items-center justify-center">
+                <div class="flex flex-row items-center justify-center text-gray-500 font-semibold">
                     <p>Gestiona tus personajes de Dragon Ball</p>
                     <img src="images/esfera_dragon.svg" alt="esfera_dragon" class="w-12 h-12">
                 </div>
@@ -35,7 +35,10 @@
                 <!-- Bloque Formulario -->
                 <form id="form" class="mb-12 border border-gray-300 rounded-xl p-6">
                     <input type="hidden" id="personajeId">
-                    <p class="uppercase pb-2 text-orange-500 font-bold">Nuevo Personaje</p>
+                    <div class="flex gap-2 pl-6">
+                        <i data-lucide="user" class="w-5 h-5 text-orange-500"></i>
+                        <p class="uppercase pb-2 text-orange-500 font-bold">Nuevo Personaje</p>
+                    </div>
 
                     <div class="flex flex-col gap-4 mb-4 ">
                         <label class="block text-base font-bold text-neutral-500 mb-1">
@@ -182,8 +185,8 @@
     <script src="main.js"></script>
 
     <footer>
-        <p class="text-center text-sm text-gray-500">
-            German Contreras - Full Stack Developer
+        <p class="text-center text-sm text-gray-500 h-4">
+            Bootcamp Frontend Python G31 - GCJ- German Contreras Jacinto - Full Stack Developer
         </p>
     </footer>
 

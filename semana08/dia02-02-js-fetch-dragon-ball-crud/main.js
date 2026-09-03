@@ -46,6 +46,24 @@ function razaFunction(personaje) {
     razaClass = 'text-orange-600 border border-orange-600 px-1.5 py-0.5 rounded bg-orange-50 hover:bg-orange-200'
   } else if (raza === 'namekian') {
     razaClass = 'text-purple-600 border border-purple-600 px-1.5 py-0.5 rounded bg-purple-50 hover:bg-purple-200'
+  }else if (raza === 'android') {
+    razaClass = 'text-gray-600 border border-gray-600 px-1.5 py-0.5 rounded bg-gray-50 hover:bg-gray-200'
+  } else if (raza === 'frieza race') {
+    razaClass = 'text-red-600 border border-red-600 px-1.5 py-0.5 rounded bg-red-50 hover:bg-red-200'
+  } else if (raza === 'majin') {
+    razaClass = 'text-yellow-600 border border-yellow-600 px-1.5 py-0.5 rounded bg-yellow-50 hover:bg-yellow-200'
+  } else if (raza === 'god') {
+    razaClass = 'text-indigo-600 border border-indigo-600 px-1.5 py-0.5 rounded bg-indigo-50 hover:bg-indigo-200'
+  } else if (raza === 'unknown') {
+    razaClass = 'text-red-800 border border-red-800 px-1.5 py-0.5 rounded bg-red-50 hover:bg-red-200'
+  } else if (raza === 'jiren race') {
+    razaClass = 'text-brown-800 border border-brown-800 px-1.5 py-0.5 rounded bg-brown-50 hover:bg-brown-200'
+  } else if (raza === 'nucleico benigno') {
+    razaClass = 'text-teal-600 border border-teal-600 px-1.5 py-0.5 rounded bg-teal-50 hover:bg-teal-200'
+  } else if (raza === 'evil') {
+    razaClass = 'text-cyan-600 border border-cyan-600 px-1.5 py-0.5 rounded bg-cyan-50 hover:bg-cyan-200'
+  } else if (raza === 'nucleico') {
+    razaClass = 'text-rose-600 border border-rose-600 px-1.5 py-0.5 rounded bg-rose-50 hover:bg-rose-200'
   }
   return razaClass
 }
@@ -97,10 +115,10 @@ const renderPersonajes = (personajes = []) => {
       </div>
 
       <div class="flex items-center gap-3 shrink-0">
-        <button data-action="editar" data-id="${personaje.id}" class="text-xs text-blue-600 hover:text-blue-700 transition-colors border border-blue-600 rounded-lg px-6 py-2">
+        <button data-action="editar" data-id="${personaje.id}" class="text-xs text-blue-600 hover:text-blue-700 hover:bg-blue-100 transition-colors border border-blue-600 rounded-lg px-6 py-2">
           Editar
         </button>
-        <button data-action="eliminar" data-id="${personaje.id}" class="text-xs text-red-500 hover:text-red-700 transition-colors border border-red-500 rounded-lg px-6 py-2">
+        <button data-action="eliminar" data-id="${personaje.id}" class="text-xs text-red-500 hover:text-red-700 hover:bg-red-100 transition-colors border border-red-500 rounded-lg px-6 py-2">
           Eliminar
         </button>
       </div>
@@ -116,7 +134,7 @@ form.addEventListener('submit', async (event) => {
   //Evitar que el formulario recargue la pagina
   event.preventDefault()
 
-  //limpiar contenido de p 'invalido'
+  //limpiar contenido de mensaje  'nombre invalido', URL invalido'
   document.querySelector('#nombreError').textContent = ''
   document.querySelector('#imagenError').textContent = ''
 
