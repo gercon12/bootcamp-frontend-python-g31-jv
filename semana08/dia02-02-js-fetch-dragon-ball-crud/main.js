@@ -133,7 +133,7 @@ form.addEventListener('submit', async (event) => {
 
   console.log(nombre, imagen, raza, genero)
 
-
+//Validar si el nombre y la url son datos validos
   if (nombre.trim() === '') {
     document.querySelector('#nombreError').textContent = 'Nombre inválido'
     return
