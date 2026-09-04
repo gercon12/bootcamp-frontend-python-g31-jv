@@ -1,14 +1,198 @@
+https://nodejs.org/en
 node js
 
+node -v
+
+https://github.com/nvm-windows/nvm/releases
 nvm
 
+nvm list
+
+nvm install 24.20
+
+nvm use 24.20
+
+npm -v
+
+cd semana09
+https://vite.dev/
 npm create vite@latest
 
 project-name: dia01-react-introduccion
 
-
+cd dia01-01-react-introduccion
 npm install
 npm run dev
 
 http://localhost:5173/
+
+
+------------------------------------
+Tecsup Virtual 02
+tecsup.edu.pe
+18:01
+Buenas noches a todos, empezamos en un momento
+Tecsup Virtual 02
+tecsup.edu.pe
+18:18
+
+https://nodejs.org/en
+Tecsup Virtual 02
+tecsup.edu.pe
+18:37
+$ node -v
+CA
+Christian Ausejo
+gmail.com
+18:38
+v24.20.0
+Jorge Choquegonza Bonifacio
+Sin verificar
+18:38
+v.24.20
+Tecsup Virtual 02
+tecsup.edu.pe
+18:43
+
+https://github.com/nvm-windows/nvm/releases
+Tecsup Virtual 02
+tecsup.edu.pe
+18:50
+nvm
+nvm list
+Tecsup Virtual 02
+tecsup.edu.pe
+18:51
+nvm install 24.20
+CA
+Christian Ausejo
+gmail.com
+18:53
+Profe cuando pongo nvm list me sale "No versions installed." pero 
+Tecsup Virtual 02
+tecsup.edu.pe
+18:53
+nvm use 24.20
+Jorge Choquegonza Bonifacio
+Sin verificar
+18:53
+vm: command not found
+CA
+Christian Ausejo
+gmail.com
+18:53
+Pero al utilizar node -v me sale v24.20
+Tecsup Virtual 02
+tecsup.edu.pe
+18:59
+node
+.exit
+Miguel Flores Sare
+Sin verificar
+19:02
+si funciona profe
+CA
+Christian Ausejo
+gmail.com
+19:02
+Si me funciona, me sale la versión 24.20
+Nicolás Ticse
+Sin verificar
+19:02
+Cerré el Visual Studio, lo volví a abrir y funcionó.
+Jorge Choquegonza Bonifacio
+Sin verificar
+19:04
+que tecla es para que corra??
+Nicolás Ticse
+Sin verificar
+19:04
+Enter.
+Tecsup Virtual 02
+tecsup.edu.pe
+19:07
+npm -v
+Tecsup Virtual 02
+tecsup.edu.pe
+19:08
+
+https://vite.dev/
+Tecsup Virtual 02
+tecsup.edu.pe
+19:09
+npm create vite@latest
+Miguel Flores Sare
+Sin verificar
+19:11
+como me hubico en la semena 9 en el terminal profe
+Nicolás Ticse
+Sin verificar
+19:11
+Click derecho en la semana 9 y luego open in integrated terminal.
+Miguel Flores Sare
+Sin verificar
+19:14
+que opciín p´rofe oxlint o Eslint?
+Tecsup Virtual 02
+tecsup.edu.pe
+19:16
+npm create vite@latest
+Tecsup Virtual 02
+tecsup.edu.pe
+19:19
+npm install
+npm run dev
+
+http://localhost:5173/
+Oscar Mendoza
+Sin verificar
+19:21
+ok ing. corriendo en mac
+CA
+Christian Ausejo
+gmail.com
+19:21
+Listo profe
+Daril Mamani
+Sin verificar
+19:21
+profesor cual es la diferencia de hacer una pagina con react y sin react
+Miguel Flores Sare
+Sin verificar
+19:28
+profe luego de este paso
+  cd dia01-01-react-introduccion
+  npm install
+  npm run dev
+Daril Mamani
+Sin verificar
+19:30
+ok
+Carlos Saire
+Sin verificar
+19:48
+Profesor consulta veremos typescript
+Daril Mamani
+Sin verificar
+20:02
+presente profesor
+Tecsup Virtual 02
+tecsup.edu.pe
+20:03
+Vamos al receso, regresamoa a las 9:25p
+Tecsup Virtual 02
+tecsup.edu.pe
+20:48
+
+https://lenguajejs.com/javascript/modulos/que-es-esm/
+Daril Mamani
+Sin verificar
+21:12
+hooks? que es
+Tecsup Virtual 02
+tecsup.edu.pe
+tecsup.edu.pe
+21:14
+npm install
+npm run dev
 
