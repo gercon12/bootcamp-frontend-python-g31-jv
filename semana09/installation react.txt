@@ -1,0 +1,14 @@
+node js
+
+nvm
+
+npm create vite@latest
+
+project-name: dia01-react-introduccion
+
+
+npm install
+npm run dev
+
+http://localhost:5173/
+
