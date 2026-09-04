@@ -92,6 +92,8 @@ function razaFunction(personaje) {
     razaClass = 'text-cyan-600 border border-cyan-600 px-1.5 py-0.5 rounded bg-cyan-50 hover:bg-cyan-200'
   } else if (raza === 'nucleico') {
     razaClass = 'text-rose-600 border border-rose-600 px-1.5 py-0.5 rounded bg-rose-50 hover:bg-rose-200'
+  } else if (raza === 'angel') {
+    razaClass = 'text-lime-600 border border-lime-600 px-1.5 py-0.5 rounded bg-lime-50 hover:bg-lime-200'
   }
   return razaClass
 }
