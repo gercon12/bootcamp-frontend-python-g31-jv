@@ -167,6 +167,47 @@ const renderPersonajes = (personajesPagina = []) => {
 }
 
 
+//Obteniendo datos del formulario y validando
+const obtenerDatosFormulario = () => {
+
+  // Obtener formulario
+  const personajeForm = document.forms['form']
+
+  // Limpiar mensajes de error
+  document.querySelector('#nombreError').textContent = ''
+  document.querySelector('#imagenError').textContent = ''
+  document.querySelector('#generoError').textContent = ''
+
+  // Obtener datos
+  const nombre = personajeForm.nombre.value
+  const imagen = personajeForm.imagen.value
+  const raza = personajeForm.raza.value
+  const genero = personajeForm.genero.value
+
+  // Validar datos
+  if (nombre.trim() === '') {
+    document.querySelector('#nombreError').textContent = 'Nombre inválido'
+    return null
+  }
+
+  if (imagen.trim() === '') {
+    document.querySelector('#imagenError').textContent = 'URL inválida'
+    return null
+  }
+
+  if (genero === 'Elegir') {
+    document.querySelector('#generoError').textContent = 'Género inválido'
+    return null
+  }
+
+  // Retornar los datos si son válidos
+  return {
+    nombre,
+    imagen,
+    raza,
+    genero
+  }
+}
 
 
 //----------------------Crear el Personaje--------------------------
@@ -177,41 +218,48 @@ form.addEventListener('submit', async (event) => {
   event.preventDefault()
 
   //limpiar contenido de mensaje  'nombre invalido', URL invalido'
-  document.querySelector('#nombreError').textContent = ''
-  document.querySelector('#imagenError').textContent = ''
-  document.querySelector('#generoError').textContent = ''
+  // document.querySelector('#nombreError').textContent = ''
+  // document.querySelector('#imagenError').textContent = ''
+  // document.querySelector('#generoError').textContent = ''
 
-  console.log('Guardando personaje')
+  // console.log('Guardando personaje')
 
   //Obtener el formulario
-  const personajeForm = document.forms['form']
+  //const personajeForm = document.forms['form']
 
   //Obtener datos ingresador por el usuario
-  const nombre = personajeForm.nombre.value
-  const imagen = personajeForm.imagen.value
-  const raza = personajeForm.raza.value
-  const genero = personajeForm.genero.value
+  // const nombre = personajeForm.nombre.value
+  // const imagen = personajeForm.imagen.value
+  // const raza = personajeForm.raza.value
+  // const genero = personajeForm.genero.value
 
-  console.log(nombre, imagen, raza, genero)
+  // console.log(nombre, imagen, raza, genero)
 
   //Validar si el nombre y la url son datos validos
-  if (nombre.trim() === '') {
-    document.querySelector('#nombreError').textContent = 'Nombre inválido'
-    return
-  } else if (imagen.trim() === '') {
-    document.querySelector('#imagenError').textContent = 'URL inválida'
-    return
-  } else if (genero ==='Elegir') {
-    document.querySelector('#generoError').textContent = 'Genero invalido'
-  }
+  // if (nombre.trim() === '') {
+  //   document.querySelector('#nombreError').textContent = 'Nombre inválido'
+  //   return
+  // } else if (imagen.trim() === '') {
+  //   document.querySelector('#imagenError').textContent = 'URL inválida'
+  //   return
+  // } else if (genero ==='Elegir') {
+  //   document.querySelector('#generoError').textContent = 'Genero invalido'
+  // }
 
 
   //crear objeto con datos del personaje
-  const nuevoPersonaje = {
-    nombre,
-    imagen,
-    raza,
-    genero
+  // const nuevoPersonaje = {
+  //   nombre,
+  //   imagen,
+  //   raza,
+  //   genero
+  // }
+
+  const nuevoPersonaje = obtenerDatosFormulario()
+
+  //Si los datos no son validos, salir de la funcion
+  if (!nuevoPersonaje) {
+    return
   }
 
   //Configurar peticion POST
@@ -237,7 +285,7 @@ form.addEventListener('submit', async (event) => {
     cargarPersonajes()
 
     // Limpiar formulario
-    personajeForm.reset()
+    form.reset()
 
   } catch (error) {
 
