@@ -217,44 +217,6 @@ form.addEventListener('submit', async (event) => {
   //Evitar que el formulario recargue la pagina
   event.preventDefault()
 
-  //limpiar contenido de mensaje  'nombre invalido', URL invalido'
-  // document.querySelector('#nombreError').textContent = ''
-  // document.querySelector('#imagenError').textContent = ''
-  // document.querySelector('#generoError').textContent = ''
-
-  // console.log('Guardando personaje')
-
-  //Obtener el formulario
-  //const personajeForm = document.forms['form']
-
-  //Obtener datos ingresador por el usuario
-  // const nombre = personajeForm.nombre.value
-  // const imagen = personajeForm.imagen.value
-  // const raza = personajeForm.raza.value
-  // const genero = personajeForm.genero.value
-
-  // console.log(nombre, imagen, raza, genero)
-
-  //Validar si el nombre y la url son datos validos
-  // if (nombre.trim() === '') {
-  //   document.querySelector('#nombreError').textContent = 'Nombre inválido'
-  //   return
-  // } else if (imagen.trim() === '') {
-  //   document.querySelector('#imagenError').textContent = 'URL inválida'
-  //   return
-  // } else if (genero ==='Elegir') {
-  //   document.querySelector('#generoError').textContent = 'Genero invalido'
-  // }
-
-
-  //crear objeto con datos del personaje
-  // const nuevoPersonaje = {
-  //   nombre,
-  //   imagen,
-  //   raza,
-  //   genero
-  // }
-
   const nuevoPersonaje = obtenerDatosFormulario()
 
   //Si los datos no son validos, salir de la funcion
@@ -282,7 +244,7 @@ form.addEventListener('submit', async (event) => {
     console.log('Personaje se guardo correctamente')
 
     // Actualizar la lista
-    cargarPersonajes()
+    await cargarPersonajes()
 
     // Limpiar formulario
     form.reset()
@@ -342,27 +304,37 @@ lista.addEventListener('click', async (event) => {
     //Editar personaje
     if (action === 'editar') {
 
+      //Obtener datos formulario
+      const actualizadoPersonaje = obtenerDatosFormulario()
+
+
+      if (!actualizadoPersonaje) {
+        return
+      }
+
       //Pedir confirmacion
       const confirmado = confirm('Desea editar personaje')
 
+      //Si no confirma se regresa
       if (!confirmado) {
         return
       }
+
       //Obtener datos del formulario
-      const personajeForm = document.forms['form']
+      // const personajeForm = document.forms['form']
 
-      const nombre = personajeForm.nombre.value
-      const imagen = personajeForm.imagen.value
-      const raza = personajeForm.raza.value
-      const genero = personajeForm.genero.value
+      // const nombre = personajeForm.nombre.value
+      // const imagen = personajeForm.imagen.value
+      // const raza = personajeForm.raza.value
+      // const genero = personajeForm.genero.value
 
-      //Crear objeto con los datos actualizados
-      const actualizadoPersonaje = {
-        nombre,
-        imagen,
-        raza,
-        genero
-      }
+      // //Crear objeto con los datos actualizados
+      // const actualizadoPersonaje = {
+      //   nombre,
+      //   imagen,
+      //   raza,
+      //   genero
+      // }
 
       //Configurar peticion PUT
       const opciones = {
@@ -389,7 +361,7 @@ lista.addEventListener('click', async (event) => {
       console.log('Personaje actualizado correctamente')
 
       //Actualizar lista
-      cargarPersonajes()
+      await cargarPersonajes()
 
       //Limpiar el formulario
       personajeForm.reset()

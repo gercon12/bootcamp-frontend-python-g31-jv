@@ -123,7 +123,7 @@
 
 // snippet: rfc
 
-import React from 'react'
+// import React from 'react'
 
 // export default function App() {
 //   return (
@@ -163,23 +163,97 @@ import React from 'react'
 //   )
 // }
 
-import ComponenteSaludo from './components/ComponenteSaludo'
-import ComponenteDespedida from './components/ComponenteDespedida'
+// import ComponenteSaludo from './components/ComponenteSaludo'
+// import ComponenteDespedida from './components/ComponenteDespedida'
 
+
+// const App = () => {
+
+// const ComponenteSaludo = () => {
+//   return (
+//     <section>
+//       <h3>Componente Saludo</h3>
+//       <ComponenteSaludo />
+//       <ComponenteDespedida /> 
+//     </section>
+//   )
+// }
+
+// export default App
+//TODO: crear el componente ComponenteDespedida en su propio archivo e imporarlo en App.jsx, luego renderizarlo dentro del componente App.  
+
+//usando espresiones de JSX, renderizar el componente ComponenteSaludo dentro del componente App.
+
+
+// import nombreExportado, {frutas, curso} from "./modulo.js"
+
+
+// const App = () => {
+
+//   const suma = 8 + 9
+//   const nombre = 'German'
+
+//   //comentario en react.js
+
+//   return (
+//     <section>
+//       <h1>Componente Saludo</h1>
+//       <p>{suma}</p>
+//       <p>{nombre}</p>
+
+//       <p>Hola {nombre}</p>
+//       <p>{`Hola ${nombre}`}</p>
+
+//       {/*comentario en React.js dentro del JSX*/}
+
+      
+//       <p>{frutas}</p>
+//       <p>{nombreExportado}</p>
+//       <p>{JSON.stringify(curso)}</p>
+//       <p>{curso.nota}</p>
+      
+//     </section>
+//   )
+// }
+
+
+// 09 Propiedades de un componente (ahora el componente sera reutilizable)
+
+// const BienvenidaPersonalizada = (props) => {
+//   return <h3>Hola {props.nombre}, tu edad es {props.edad ?? '0'}</h3>
+// }
+
+// const App = () => {
+//   return (
+//     <section>
+//       <h4>Propiedades de un componente</h4>
+//       <BienvenidaPersonalizada nombre='German' edad='40'/>
+//       <BienvenidaPersonalizada nombre='Sofia' edad='33'/>
+//       <BienvenidaPersonalizada nombre='German'/>
+//     </section>
+    
+//   )
+// }
+
+// export default App
+
+// 10 - Propiedades de un componente (con destructuring)
+
+const BienvenidaPersonalizada = ({nombre, edad, color}) => {
+  return <h3>Hola {nombre}, tu edad es {edad ?? '0'} años, tu color favorito es {color}</h3>
+}
 
 const App = () => {
-
-const ComponenteSaludo = () => {
   return (
     <section>
-      <h3>Componente Saludo</h3>
-      <ComponenteSaludo />
-      <ComponenteDespedida /> 
+      <h4>Propiedades de un componente (con Destructuring)</h4>
+      <BienvenidaPersonalizada nombre='German' edad='40' color='Azul'/>
+      <BienvenidaPersonalizada nombre='Sofia' edad='33'/>
+      <BienvenidaPersonalizada nombre='German'/>
     </section>
+    
   )
 }
 
 export default App
-//TODO: crear el componente ComponenteDespedida en su propio archivo e imporarlo en App.jsx, luego renderizarlo dentro del componente App.  
 
-//usando espresiones de JSX, renderizar el componente ComponenteSaludo dentro del componente App.
