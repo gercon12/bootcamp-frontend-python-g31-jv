@@ -121,52 +121,17 @@
 
 // export default App
 
-import './Card.css'
-
-//Propiedad Children:  Es el contenido hijo dentro del componente
-
-const Card = ({children}) => {
-  return(
-    <section className='card' style={{backgroundColor:'green', padding:'8px'}}>
-      <h1 className='title'>Hola react!</h1>
-
-      <p className='description'>
-        {children ?? 'Ingresa un contenido en tu componente'}
-      </p>
-      <button className='button'>
-        Ok
-      </button>
-    </section>
-  )
-
-}
-
-const CardConTailwindCSS = () =>{
-    return(
-    <section className='mt-4 bg-orange-100 w-[300px] p-4 flex flex-col'>
-      <h1 className=' text-xl font-bold mb-2 text-center'>Hola react!</h1>
-
-      <p className='text-center'>
-        Estoy aprendiendo React estilos con Reac.js!
-      </p>
-      <button className='w-full bg-blue-300 p-2 rounded-md'>
-        Ok
-      </button>
-    </section>
-  )
-}
+import MostrarTexto from "./components/MostrarTexto"
 
 const App = () => {
   return (
     <section>
-      <h1 className='text-2xl text-center text-amber-700'>React + css</h1>
-      <Card/>
-        Estoy aprendiendo estilos con ReactJs
-      <Card/>
-
-      <CardConTailwindCSS/>
+      <h1 className="text-2xl font-bold text-center">
+        React + Eventos + useState(Hook)
+      </h1>
+      <MostrarTexto/>
+      
     </section>
-    
   )
 }
 
