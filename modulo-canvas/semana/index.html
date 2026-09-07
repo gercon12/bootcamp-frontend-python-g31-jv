@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pocisionamiento y RWD</title>
+    <style>
+        .contenedor {
+            display: flex;
+            width: 800px;
+            border: 2px solid black;
+        }
+
+        .caja {
+            width: 100px;
+            padding: 20px;
+            border: 1px solid blue;
+        }
+
+        .caja1 {
+            flex-grow: 0;
+        }
+
+        .caja2 {
+            flex-grow: 3;
+        }
+
+        .caja3 {
+            flex-grow: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Pocisionamiento y RWD - Flex Grow</h1>
+    <div class="contenedor">
+        <div class="caja caja1">Caja 1</div>
+        <div class="caja caja2">Caja 2</div>
+        <div class="caja caja3">Caja 3</div>
+    </div>
+
+</body>
+
+</html>

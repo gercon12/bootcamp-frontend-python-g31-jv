@@ -45,6 +45,24 @@
 
 }
 
+@font-face {
+    font-family: 'DMMono-Medium';
+    src: url(./assets/fonts/dm-mono/DMMono-Medium.ttf);  
+
+    /* font-family: 'DMMono-Regular';
+    src: url(./assets/fonts/dm-mono/DMMono-Regular.ttf); */
+}
+
+@font-face {
+    font-family: 'DMMono-Regular';
+    src: url(./assets/fonts/dm-mono/DMMono-Regular.ttf);
+}
+
+.paragraph {
+    font-family:'DMMono-Medium';
+}
+
+
 * {
     box-sizing: border-box;
     margin: 0;
