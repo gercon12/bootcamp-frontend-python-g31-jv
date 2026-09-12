@@ -53,6 +53,9 @@ const App = () => {
     setForm({ ...form, [name]: value })
   }
 
+  const handleDelete =(id) => {
+    console.log('eliminando', id)
+  }
 
 
   return (
@@ -128,7 +131,7 @@ const App = () => {
                 <div className="text-left">{student.city}</div>
                 <div className="flex gap-2">
                   <button>✏</button>
-                  <button>❌</button>
+                  <button onClick={() => handleDelete(student.id)}>❌</button>
                 </div>
               </div>
             )
