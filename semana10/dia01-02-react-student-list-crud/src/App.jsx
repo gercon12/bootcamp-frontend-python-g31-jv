@@ -79,9 +79,7 @@ const App = () => {
     setForm({ ...form, [name]: value })
   }
 
-  const handleDelete =(id) => {
-    console.log('eliminando', id)
-  }
+
 
 
   const handleDelete = (id) => {
@@ -207,22 +205,7 @@ return (
 
       <pre>{JSON.stringify(form, null, 2)}</pre>
       <pre>{JSON.stringify(students, null, 2)}</pre>
-
-<<<<<<< HEAD
-              <div className="flex justify-between items-center gap-2 bg-slate-200 px-4 py-2
-          rounded-lg">
-                <div className="text-left">{student.name}</div>
-                <div className="text-left">{student.city}</div>
-                <div className="flex gap-2">
-                  <button>✏</button>
-                  <button onClick={() => handleDelete(student.id)}>❌</button>
-                </div>
-              </div>
-            )
-          })}
-=======
     </section>
->>>>>>> cb102111eabd3854c94a256f71735d1b351ad427
 
   </main>
 )
