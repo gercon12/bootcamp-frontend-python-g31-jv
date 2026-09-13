@@ -14,7 +14,7 @@ const App = () => {
       city: 'Lima'
     },
     {
-      id: '2',
+      id: '3',
       name: 'vegeta',
       city: 'Trujillo'
     }
