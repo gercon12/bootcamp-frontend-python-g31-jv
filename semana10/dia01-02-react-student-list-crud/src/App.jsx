@@ -1,90 +1,135 @@
 import { useState } from "react"
-import Swal from 'sweetalert2'
+import Swal from "sweetalert2"
 
 const App = () => {
+
+  //Datos iniciales de estudiantes
   const DEFAULT_STUDENTS = [
     {
-      id: '1',
-      name: 'German',
-      city: 'El Progreso'
+      id: "1",
+      name: "German",
+      city: "El Progreso"
     },
     {
-      id: '2',
-      name: 'Goku',
-      city: 'Lima'
+      id: "2",
+      name: "Goku",
+      city: "Lima"
     },
     {
-      id: '3',
-      name: 'vegeta',
-      city: 'Trujillo'
+      id: "3",
+      name: "Vegeta",
+      city: "Trujillo"
     }
   ]
 
 
+  //Guardar la lista de estudiantes
   const [students, setStudents] = useState(DEFAULT_STUDENTS)
-  const [form, setForm] = useState({
-    id: '',
-    name: '',
-    city: ''
 
+
+  //Guardar los datos del formulario
+  const [form, setForm] = useState({
+    id: "",
+    name: "",
+    city: ""
   })
 
+
+  //Guardar o actualizar estudiante
   const handleSave = (event) => {
+
+    //Evitar que el formulario recargue la página
     event.preventDefault()
-    console.log('Guardando....')
+
+    console.log("Guardando....")
 
 
-    //Actualizar un estudiante
+    //Actualizar estudiante si existe un id
     if (form.id) {
+
+      //Recorrer todos los estudiantes
       const updateStudents = students.map(student => {
+
+        //Buscar el estudiante por su id
         if (student.id === form.id) {
+
+          //Copiar el estudiante y actualizar sus datos
           return {
             ...student,
             name: form.name,
             city: form.city
           }
         }
+
+        //Dejar los demás estudiantes sin cambios
         return student
       })
+
+
+      //Actualizar la lista de estudiantes
       setStudents(updateStudents)
+
+
+      //Limpiar formulario
       setForm({
-        id: '',
-        name: '',
-        city: ''
+        id: "",
+        name: "",
+        city: ""
       })
+
+      //Terminar la función
       return
     }
 
 
-    //creando un nuevo estudiante
+    //Crear un nuevo estudiante
     const newStudent = {
+
+      //Crear un id único
       id: crypto.randomUUID(),
+
+      //Tomar datos del formulario
       name: form.name,
       city: form.city
     }
 
-    setStudents([...students, newStudent])
 
+    //Agregar el nuevo estudiante a la lista
+    setStudents([
+      ...students,
+      newStudent
+    ])
+
+
+    //Limpiar formulario
     setForm({
-      id: '',
-      name: '',
-      city: ''
+      id: "",
+      name: "",
+      city: ""
     })
-
   }
 
 
+  //Capturar cambios de los inputs
   const handleChange = (event) => {
+
+    //Obtener nombre y valor del input
     const { name, value } = event.target
-    setForm({ ...form, [name]: value })
+
+    //Actualizar el campo correspondiente del formulario
+    setForm({
+      ...form,
+      [name]: value
+    })
   }
 
 
-
-
+  //Eliminar estudiante
   const handleDelete = (id) => {
-    console.log('Eliminando', id)
 
+    console.log("Eliminando", id)
+
+    //Mostrar mensaje de confirmación
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -94,17 +139,28 @@ const App = () => {
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, delete it!"
     }).then((result) => {
+
+      //Verificar si confirmó la eliminación
       if (result.isConfirmed) {
+
+        //Crear una lista sin el estudiante seleccionado
         const updatedStudents = students.filter(student => {
           return student.id !== id
         })
-         setStudents(updatedStudents)
-    }
-  });   
-}
 
+        //Actualizar la lista de estudiantes
+        setStudents(updatedStudents)
+      }
+    })
+  }
+
+
+  //Editar estudiante
   const handleEdit = (student) => {
-    console.log('Actualizando', student)
+
+    console.log("Actualizando", student)
+
+    //Cargar los datos del estudiante en el formulario
     setForm({
       id: student.id,
       name: student.name,
@@ -112,13 +168,17 @@ const App = () => {
     })
   }
 
+
+  //Limpiar formulario
   const handleClear = () => {
+
     setForm({
-      id: '',
-      name: '',
-      city: ''
+      id: "",
+      name: "",
+      city: ""
     })
   }
+
 
 return (
   <main className="w-96 mx-auto border border-slate-400 rounded-lg mt-6 p-4">
@@ -165,13 +225,13 @@ return (
           value="Save"
         />
 
-        <input
+        <button
           className="bg-slate-500 text-white hover:bg-blue-800 font-medium
           rounded-lg text-sm w-full px-4 py-2 text-center cursor-pointer"
-          type="reset"
-          value="Clear" 
+          type="button"
           onClick={handleClear}
-          />
+          >Clear</button>
+          
 
       </div>
     </form>
