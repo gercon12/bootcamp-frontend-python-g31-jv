@@ -12,6 +12,9 @@ const Contador = () => {
 
   const decrement = () => {
     setContador(contador - 1)
+    if (contador === 0){
+      setContador(0)
+    }
   }
 
   return (

@@ -121,16 +121,27 @@
 
 // export default App
 
-import MostrarTexto from "./components/MostrarTexto"
+// import MostrarTexto from "./components/MostrarTexto"
+
+// const App = () => {
+//   return (
+//     <section>
+//       <h1 className="text-2xl font-bold text-center">
+//         React + Eventos + useState(Hook)
+//       </h1>
+//       <MostrarTexto/>
+      
+//     </section>
+//   )
+// }
+
+import Contador from "./components/contador"
 
 const App = () => {
-  return (
+  return(
     <section>
-      <h1 className="text-2xl font-bold text-center">
-        React + Eventos + useState(Hook)
-      </h1>
-      <MostrarTexto/>
-      
+      <h1>React + Eventos + useState(Hook)</h1>
+      <Contador/>
     </section>
   )
 }
