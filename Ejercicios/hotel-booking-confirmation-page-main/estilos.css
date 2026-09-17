@@ -82,7 +82,6 @@ body {
 }
 
 .layout {
-    border: 1px dotted salmon;
     display: flex;
     flex-direction: column;
     /* height: inherit; */
@@ -110,6 +109,9 @@ main {
     flex-direction: row;
     align-items: center;
     gap: 1rem;
+    padding-bottom: 0.5rem;
+    padding-left: 1rem;
+    margin-bottom: 0.5rem;
     /* width: 95%; */
 
     border-bottom: 1px solid var(--Neutral-400);
@@ -143,6 +145,7 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    padding-left: 1rem;
     /* width: 100%; */
 }
 
@@ -206,10 +209,11 @@ main {
         width: 250px;
         flex-shrink: 0;
         /*Define la altura total de la pantalla*/
-        height: 100vh;
+        height: container(100vh);
         display: flex;
         flex-direction: column;
         /* justify-content: center; */
+         border-right: 1px solid var(--Neutral-400);
     }
 
     .aside__content {
@@ -218,7 +222,7 @@ main {
         justify-content: space-between;
         /* ocupa todo el alto restante con el .aside */
         flex: 1;
-        border-right: 1px solid var(--Neutral-400);
+        /* border-right: 1px solid var(--Neutral-400); */
     }
 
     .aside__content__nav {
@@ -322,6 +326,8 @@ main {
     position: relative;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     padding-top: 4rem;
     padding-bottom: 4rem;
     gap: 4rem;
@@ -491,6 +497,8 @@ main {
 .cards {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     gap: 2rem;
     padding-bottom: 3rem;
