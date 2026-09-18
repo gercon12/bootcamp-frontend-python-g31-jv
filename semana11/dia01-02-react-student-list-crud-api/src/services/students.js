@@ -1,14 +1,15 @@
-const API_URL = 'https://apibox.vercel.app/V122nRG1xIpziJawmrUErEB5hkMeEvu1/api/students'
+const API_URL = 'https://apibox.vercel.app/wiCGqgAcbyEvefce2mjzfyyJKVTR6ivB/api/students'
 
-export const fetchStudents = async() => {
+
+export const fetchStudents = async () => {
   const response = await fetch(API_URL)
-           
-      return await response.json()
-    }
+
+  return await response.json()
+}
 
 // TODO: crear la función createStudent que haga un post al recurso students
 
-export const createStudent = async (payload) =>{
+export const createStudent = async (payload) => {
   const options = {
     method: 'POST',
     headers: {
@@ -17,24 +18,22 @@ export const createStudent = async (payload) =>{
     body: JSON.stringify(payload)
   }
 
-  const response = await fetch(API_URL,options)
+  const response = await fetch(API_URL, options)
 
   return await response.json()
-}
+} 
 
-//Eliminar estudiante
-
-export const deleteStudent = async(id) =>{
+export const removeStudent = async (id) => {
   const options = {
-    method: 'DELETE',
+    method: 'DELETE'
   }
 
-  const response= await fetch(`{API_URL}/${id}`,options)
+  const response = await fetch(`${API_URL}/${id}`, options)
+
   return await response.json()
 }
 
-//Actualizar estudiante
-export const updateStudent = async (payload, id) =>{
+export const updateStudent = async (payload, id) => {
   const options = {
     method: 'PUT',
     headers: {
@@ -42,6 +41,8 @@ export const updateStudent = async (payload, id) =>{
       body: JSON.stringify(payload)
     }
   }
-  const response = await fetch(`{API_URL}/${id}`,options)
+
+  const response = await fetch(`${API_URL}/${id}`, options)
+
   return await response.json()
 }
