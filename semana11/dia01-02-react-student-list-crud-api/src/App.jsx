@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { fetchStudents } from "./services/students"
 
 import Swal from 'sweetalert2'
 
@@ -12,12 +13,8 @@ const App = () => {
 
   useEffect(() => {
     console.log('Cargando students...')
-    fetch('https://apibox.vercel.app/V122nRG1xIpziJawmrUErEB5hkMeEvu1/api/students')
-      .then(response => response.json())
-      .then(data => {
-        console.log(data)
-        setStudents(data)
-      })
+    fetchStudents()
+    .then(data => setStudents(data))
   }, []) // Este useEffect se ejecuta la primera vez que el componente se crea
 
   const handleSave = (event) => {
