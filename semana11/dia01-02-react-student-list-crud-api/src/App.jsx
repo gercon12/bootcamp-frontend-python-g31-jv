@@ -1,38 +1,24 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 import Swal from 'sweetalert2'
 
 const App = () => {
-  const DEFAULT_STUDENTS = [
-    {
-      id: '1',
-      name: 'Bulma',
-      city: 'Chiclayo'
-    },
-    {
-      id: '2',
-      name: 'Goku',
-      city: 'Lima'
-    },
-    {
-      id: '3',
-      name: 'Vegeta',
-      city: 'Trujillo'
-    }
-  ]
-
-  const [students, setStudents] = useState(() => {
-    const savesStudents = localStorage.getItem('STUDENTS')
-
-    return savesStudents
-      ? JSON.parse(savesStudents)
-      : DEFAULT_STUDENTS
-  })
+  const [students, setStudents] = useState([])
   const [form, setForm] = useState({
     id: '',
     name: '',
     city: ''
   })
+
+  useEffect(() => {
+    console.log('Cargando students...')
+    fetch('https://apibox.vercel.app/V122nRG1xIpziJawmrUErEB5hkMeEvu1/api/students')
+      .then(response => response.json())
+      .then(data => {
+        console.log(data)
+        setStudents(data)
+      })
+  }, []) // Este useEffect se ejecuta la primera vez que el componente se crea
 
   const handleSave = (event) => {
     event.preventDefault()
