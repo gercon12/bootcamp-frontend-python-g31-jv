@@ -5,3 +5,43 @@ export const fetchStudents = async() => {
            
       return await response.json()
     }
+
+// TODO: crear la función createStudent que haga un post al recurso students
+
+export const createStudent = async (payload) =>{
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(payload)
+  }
+
+  const response = await fetch(API_URL,options)
+
+  return await response.json()
+}
+
+//Eliminar estudiante
+
+export const deleteStudent = async(id) =>{
+  const options = {
+    method: 'DELETE',
+  }
+
+  const response= await fetch(`{API_URL}/${id}`,options)
+  return await response.json()
+}
+
+//Actualizar estudiante
+export const updateStudent = async (payload, id) =>{
+  const options = {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+      body: JSON.stringify(payload)
+    }
+  }
+  const response = await fetch(`{API_URL}/${id}`,options)
+  return await response.json()
+}

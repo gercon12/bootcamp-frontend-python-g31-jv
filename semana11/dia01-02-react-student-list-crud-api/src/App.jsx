@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
-import { fetchStudents } from "./services/students"
 
 import Swal from 'sweetalert2'
+import { createStudent, deleteStudent, fetchStudents } from "./services/students"
 
 const App = () => {
   const [students, setStudents] = useState([])
@@ -14,7 +14,7 @@ const App = () => {
   useEffect(() => {
     console.log('Cargando students...')
     fetchStudents()
-    .then(data => setStudents(data))
+      .then(data => setStudents(data))
   }, []) // Este useEffect se ejecuta la primera vez que el componente se crea
 
   const handleSave = (event) => {
@@ -22,19 +22,33 @@ const App = () => {
 
     console.log('Guardando...')
 
+    //TODO implementar el guardado del estudiante cuanto ya existe
+
+
+
     if (form.id) { // Actualizar un estudiante
       const updatedStudents = students.map(student => {
         if (student.id === form.id) {
-          return {
-            ...student,
-            name: form.name,
-            city: form.city
-          }
+          // return {
+          //   ...student,
+          //   name: form.name,
+          //   city: form.city
+
+          
+
+          // }
+          updatedStudents(student, form.id)
+          .then(()=>{
+            fetchStudents()
+            .then(data=>setStudents(data))
+          })
         }
 
         return student
       })
-      
+
+      // TODO: Crear un registro en el recurso students y posteriormente actualizar el listado de estudiantes
+
       setStudents(updatedStudents)
 
       localStorage.setItem('STUDENTS', JSON.stringify(updatedStudents))
@@ -47,20 +61,19 @@ const App = () => {
 
       return
     }
-    
+
     // Creando un nuevo estudiante
 
     const newStudent = {
-      id: crypto.randomUUID(),
       name: form.name,
       city: form.city
     }
 
-    const updatedStudents = [...students, newStudent]
-
-    setStudents(updatedStudents)
-
-    localStorage.setItem('STUDENTS', JSON.stringify(updatedStudents))
+    createStudent(newStudent)
+      .then(() => {
+        fetchStudents()
+          .then(data => setStudents(data))
+      })
 
     setForm({
       id: '',
@@ -76,6 +89,8 @@ const App = () => {
   }
 
   const handleDelete = (id) => {
+    //TODO implementar el boton eliminar de cada estudiante para eliminarlo en el apibox
+
     console.log('Eliminando', id)
 
     Swal.fire({
@@ -88,13 +103,21 @@ const App = () => {
       confirmButtonText: "Yes, delete it!"
     }).then((result) => {
       if (result.isConfirmed) {
-        const updatedStudents = students.filter(student => {
-          return student.id !== id
-        })
+        // const updatedStudents = students.filter(student => {
+        //   return student.id !== id
+        // })
 
-        setStudents(updatedStudents)
+        // setStudents(updatedStudents)
 
-        localStorage.setItem('STUDENTS', JSON.stringify(updatedStudents))
+        // localStorage.setItem('STUDENTS', JSON.stringify(updatedStudents))
+
+        deleteStudent(id)
+          .then(() => {
+            fetchStudents()
+              .then(data => setStudents(data))
+          })
+
+
       }
     });
   }
