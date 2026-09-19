@@ -1,11 +1,21 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
-const Form = ({ onSubmit }) => {
+const Form = ({ onSubmit, studentToEdit }) => {
   const [form, setForm] = useState({
     id: '',
     name: '',
     city: ''
   })
+
+  useEffect(() => {
+    if(studentToEdit) {
+      setForm({
+        id: studentToEdit.id,
+        name: studentToEdit.name,
+        city: studentToEdit.city
+      })
+    }
+  }, [studentToEdit])
 
   const handleChange = (event) => {
     const { name, value } = event.target
@@ -34,14 +44,7 @@ const Form = ({ onSubmit }) => {
         city: form.city,
       }
 
-    //   updateStudent(student, form.id)
-    //     .then(() => {
-    //       fetchStudents()
-    //         .then(data => setStudents(data))
-    //     })
-
-
-    onSubmit()
+      onSubmit(student, form.id)
 
       setForm({
         id: '',
@@ -60,7 +63,6 @@ const Form = ({ onSubmit }) => {
       name: form.name,
       city: form.city
     }
-
 
     onSubmit(newStudent)
     
