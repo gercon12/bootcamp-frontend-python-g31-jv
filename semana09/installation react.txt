@@ -26,6 +26,22 @@ npm run dev
 
 http://localhost:5173/
 
+npm i sweetalert2
+
+npm install tailwindcss @tailwindcss/vite
+
+import { defineConfig } from 'vite'
+import tailwindcss from '@tailwindcss/vite'
+
+export default defineConfig({
+  plugins: [
+    tailwindcss(),
+  ],
+})
+
+
+@import "tailwindcss";
+
 
 ------------------------------------
 Tecsup Virtual 02
