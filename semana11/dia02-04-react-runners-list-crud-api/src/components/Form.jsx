@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 
 const Form = ({ createCorredor, updateCorredor, corredorEditar }) => {
 
-  // Estado del formulario
+  // Estado que guarda los datos del formulario
   const [form, setForm] = useState({
     nombre: '',
     edad: '',
@@ -11,11 +11,15 @@ const Form = ({ createCorredor, updateCorredor, corredorEditar }) => {
   })
 
 
-  // Cargar corredor seleccionado en el formulario
+  // ---------------- CARGAR CORREDOR PARA EDITAR ----------------
+
+  // Se ejecuta cuando cambia corredorEditar
   useEffect(() => {
 
+    // Verificar si existe un corredor seleccionado
     if (corredorEditar) {
 
+      // Cargar los datos del corredor en el formulario
       setForm({
         id: corredorEditar.id,
         nombre: corredorEditar.nombre,
@@ -29,11 +33,15 @@ const Form = ({ createCorredor, updateCorredor, corredorEditar }) => {
   }, [corredorEditar])
 
 
-  // Capturar cambios de los inputs
+  // ---------------- CAPTURAR DATOS ----------------
+
+  // Se ejecuta cada vez que cambia un input
   const handleChange = (event) => {
 
+    // Obtener nombre y valor del input
     const { name, value } = event.target
 
+    // Actualizar solamente el campo que cambió
     setForm({
       ...form,
       [name]: value
@@ -41,19 +49,21 @@ const Form = ({ createCorredor, updateCorredor, corredorEditar }) => {
   }
 
 
-  // Enviar formulario
+  // ---------------- ENVIAR FORMULARIO ----------------
+
   const handleSubmit = async (event) => {
 
+    // Evitar que la página se recargue
     event.preventDefault()
 
-    // Editar corredor
+    // Si existe corredorEditar, actualizar corredor
     if (corredorEditar) {
 
       await updateCorredor(form)
 
     } else {
 
-      // Crear corredor
+      // Si no existe, crear un corredor
       await createCorredor(form)
 
     }
@@ -69,6 +79,8 @@ const Form = ({ createCorredor, updateCorredor, corredorEditar }) => {
   }
 
 
+  // ---------------- FORMULARIO ----------------
+
   return (
     <form
       className="mb-12 border border-neutral-200 rounded-xl p-6"
@@ -81,6 +93,7 @@ const Form = ({ createCorredor, updateCorredor, corredorEditar }) => {
 
       <div className="flex flex-col gap-4 mb-4">
 
+        {/* Nombre */}
         <label className="block text-xs text-neutral-500 mb-1">
           Nombre completo
 
@@ -96,6 +109,7 @@ const Form = ({ createCorredor, updateCorredor, corredorEditar }) => {
         </label>
 
 
+        {/* Edad */}
         <label className="block text-xs text-neutral-500 mb-1">
           Edad
 
@@ -111,6 +125,7 @@ const Form = ({ createCorredor, updateCorredor, corredorEditar }) => {
         </label>
 
 
+        {/* Categoría */}
         <label className="block text-xs text-neutral-500 mb-1">
           Categoría
 
@@ -130,6 +145,7 @@ const Form = ({ createCorredor, updateCorredor, corredorEditar }) => {
         </label>
 
 
+        {/* Dorsal */}
         <label className="block text-xs text-neutral-500 mb-1">
           Dorsal
 
@@ -147,6 +163,7 @@ const Form = ({ createCorredor, updateCorredor, corredorEditar }) => {
       </div>
 
 
+      {/* Botón crear / editar */}
       <div className="flex flex-col items-center gap-4">
 
         <button
