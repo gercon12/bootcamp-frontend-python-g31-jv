@@ -7,6 +7,8 @@ import Swal from 'sweetalert2'
 
 const App = () => {
 
+  const [loading, setLoading] = useState(false)
+
   const [corredores, setCorredores] = useState([])
 
   // Corredor que vamos a editar
@@ -17,11 +19,24 @@ const App = () => {
 
 
   // Cargar corredores
+  // const fetchCorredores = async () => {
+
+  //   const response = await fetch(API_URL)
+
+  //   return await response.json()
+  // }
+
   const fetchCorredores = async () => {
+
+    setLoading(true)
 
     const response = await fetch(API_URL)
 
-    return await response.json()
+    const data = await response.json()
+
+    setLoading(false)
+
+    return data
   }
 
 
@@ -72,40 +87,40 @@ const App = () => {
     setCorredorEditar(null)
   }
 
-// Eliminar corredor
-const deleteCorredor = async (id) => {
+  // Eliminar corredor
+  const deleteCorredor = async (id) => {
 
-  const result = await Swal.fire({
-    title: "¿Eliminar corredor?",
-    text: "Esta acción no se puede deshacer",
-    icon: "warning",
-    showCancelButton: true,
-    confirmButtonColor: "#3085d6",
-    cancelButtonColor: "#d33",
-    confirmButtonText: "Sí, eliminar",
-    cancelButtonText: "Cancelar"
-  })
-
-  // Si confirma, eliminar
-  if (result.isConfirmed) {
-
-    const options = {
-      method: 'DELETE'
-    }
-
-    await fetch(`${API_URL}/${id}`, options)
-
-    setCorredores(
-      corredores.filter(corredor => corredor.id !== id)
-    )
-
-    Swal.fire({
-      title: "Eliminado",
-      text: "El corredor fue eliminado correctamente",
-      icon: "success"
+    const result = await Swal.fire({
+      title: "¿Eliminar corredor?",
+      text: "Esta acción no se puede deshacer",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Sí, eliminar",
+      cancelButtonText: "Cancelar"
     })
+
+    // Si confirma, eliminar
+    if (result.isConfirmed) {
+
+      const options = {
+        method: 'DELETE'
+      }
+
+      await fetch(`${API_URL}/${id}`, options)
+
+      setCorredores(
+        corredores.filter(corredor => corredor.id !== id)
+      )
+
+      Swal.fire({
+        title: "Eliminado",
+        text: "El corredor fue eliminado correctamente",
+        icon: "success"
+      })
+    }
   }
-}
 
   return (
     <div className="bg-white text-neutral-900 min-h-screen">
@@ -126,6 +141,7 @@ const deleteCorredor = async (id) => {
             corredores={corredores}
             setCorredorEditar={setCorredorEditar}
             deleteCorredor={deleteCorredor}
+            loading={loading}
           />
 
         </div>

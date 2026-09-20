@@ -1,4 +1,4 @@
-const List = ({ corredores, setCorredorEditar, deleteCorredor }) => {
+const List = ({ corredores, setCorredorEditar, deleteCorredor, loading }) => {
 
   return (
     <section className="w-full">
@@ -58,7 +58,7 @@ const List = ({ corredores, setCorredorEditar, deleteCorredor }) => {
                 </button>
 
                 <button
-                   onClick={() => deleteCorredor(corredor.id)}
+                  onClick={() => deleteCorredor(corredor.id)}
                   className="text-xs text-neutral-400 hover:text-red-500 transition-colors"
                 >
                   Eliminar
@@ -71,6 +71,18 @@ const List = ({ corredores, setCorredorEditar, deleteCorredor }) => {
         })}
 
       </ul>
+
+
+      {/* <p id="loading"
+					class="hidden font-mono text-xs text-neutral-400 uppercase tracking-widest py-10 text-center">
+					Cargando corredores...
+				</p> */}
+
+      {loading && (
+        <p className="font-mono text-xs text-neutral-400 uppercase tracking-widest py-10 text-center">
+          Cargando corredores...
+        </p>
+      )}
 
     </section>
   )
