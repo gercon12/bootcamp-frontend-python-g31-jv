@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+//import { useEffect, useState } from 'react'
 
 // const ProductList = () => {
 
@@ -32,11 +32,16 @@ import { useEffect, useState } from 'react'
 //import React from 'react'
 //import PropTypes from 'prop-types'
 
+// TODO: Listar los productos(title, description, thumbnail) de la siguiente rest api: https://dummyjson.com/products. Usando un useState, useEffect.
+
+import { useEffect, useState } from "react"
+
 const ProductList = () => {
   const [products, setProducts] = useState([])
 
-  const fetchProducts = async () => {
+  const fetchProducts = async () => { // Retorna una promesa
     const response = await fetch('https://dummyjson.com/products')
+
     return await response.json()
   }
 
@@ -46,28 +51,27 @@ const ProductList = () => {
   }, [])
 
   return (
-    
-    <div>
-      <h2>Product List</h2>
-      {/* <pre>{JSON.stringify(products, null, 2)}</pre> */}
-    <ul>
-      {products.map(product => {
-        return (
-          
-        ) 
-      }
+    <div className="bg-amber-100 p-4">
+      <h2 className="text-2xl text-center py-4">Product list</h2>
+
+      <ul>
+        {products.map(product => {
+          return (
+            <li>
+              <h4 className="font-medium">{product.title}</h4>
+              <p className="font-light">{product.description}</p>
+              <img src={product.thumbnail} />
+            </li>
+          )
+        })}
       </ul>
-      </div>
+
+      {/* <pre>{JSON.stringify(products, null, 2)}</pre> */}
+    </div>
   )
 }
 
-ProductList.propTypes = {
-
-}
-
 export default ProductList
-
-
 
 
 
