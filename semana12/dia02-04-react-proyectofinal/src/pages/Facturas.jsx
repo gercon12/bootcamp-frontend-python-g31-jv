@@ -1,18 +1,19 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { getFacturas } from '../services/facturasApi'
+import { useFacturasStore } from '../store/facturasStore'
 import FacturaList from '../components/FacturaList'
 
 const Facturas = () => {
 
-  // STATE - Guardar las facturas
-  const [facturas, setFacturas] = useState([])
+  // STORE - Obtener STATE y ACTION
+  const { facturas, setFacturas } = useFacturasStore()
 
   // Obtener facturas de APIBox
   const fetchFacturas = async () => {
 
     const data = await getFacturas()
 
-    // Actualizar el STATE
+    // ACTION - Actualizar el STATE global
     setFacturas(data)
   }
 
@@ -34,7 +35,6 @@ const Facturas = () => {
         Administración y búsqueda de facturas.
       </p>
 
-      {/* Enviar facturas como PROP */}
       <FacturaList facturas={facturas} />
 
     </main>
