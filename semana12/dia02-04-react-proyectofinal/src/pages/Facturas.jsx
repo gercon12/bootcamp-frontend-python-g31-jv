@@ -1,28 +1,41 @@
-import { useEffect } from 'react'
-import { getFacturas } from '../services/facturasApi'
+import { useEffect, useState } from 'react'
 import { useFacturasStore } from '../store/facturasStore'
 import FacturaList from '../components/FacturaList'
+import FacturaFilter from '../components/FacturaFilter'
+import Loading from '../components/Loading'
+import FacturaForm from '../components/FacturaForm'
 
 const Facturas = () => {
 
-  // STORE - Obtener STATE y ACTION
-  const { facturas, setFacturas } = useFacturasStore()
+  // STORE - STATE global y ACTION
+  const {
+    facturas,
+    fetchFacturas,
+    loading,
+    error
+  } = useFacturasStore()
 
-  // Obtener facturas de APIBox
-  const fetchFacturas = async () => {
+  // STATE LOCAL - Texto del buscador
+  const [busqueda, setBusqueda] = useState('')
 
-    const data = await getFacturas()
+  // STATE LOCAL - Campo utilizado para buscar
+  const [filtro, setFiltro] = useState('cliente')
 
-    // ACTION - Actualizar el STATE global
-    setFacturas(data)
-  }
-
-  // EFFECT - Cargar facturas al iniciar
+  // EFFECT - Cargar facturas
   useEffect(() => {
 
     fetchFacturas()
 
   }, [])
+
+  // Filtrar facturas
+  const facturasFiltradas = facturas.filter(factura => {
+
+    return String(factura[filtro])
+      .toLowerCase()
+      .includes(busqueda.toLowerCase())
+
+  })
 
   return (
     <main className="max-w-6xl mx-auto p-6">
@@ -35,7 +48,32 @@ const Facturas = () => {
         Administración y búsqueda de facturas.
       </p>
 
-      <FacturaList facturas={facturas} />
+      {/* Formulario ingreso factura */}
+      <FacturaForm />
+
+
+      {/* Filtros */}
+      <FacturaFilter
+        busqueda={busqueda}
+        setBusqueda={setBusqueda}
+        filtro={filtro}
+        setFiltro={setFiltro}
+      />
+
+      {/* Loading */}
+      {loading && <Loading />}
+
+      {/* Error */}
+      {error && (
+        <p className="mt-6 text-red-600">
+          {error}
+        </p>
+      )}
+
+      {/* Listado */}
+      {!loading && !error && (
+        <FacturaList facturas={facturasFiltradas} />
+      )}
 
     </main>
   )
