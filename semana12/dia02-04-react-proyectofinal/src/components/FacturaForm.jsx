@@ -1,10 +1,15 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useFacturasStore } from '../store/facturasStore'
 
 const FacturaForm = () => {
 
-  // STORE - ACTION para crear factura
-  const { addFactura } = useFacturasStore()
+  // STORE - STATE y ACTIONS
+  const {
+    addFactura,
+    editFactura,
+    facturaEditar,
+    setFacturaEditar
+  } = useFacturasStore()
 
   // STATE LOCAL - Datos del formulario
   const [form, setForm] = useState({
@@ -16,7 +21,25 @@ const FacturaForm = () => {
     estado: 'Activa'
   })
 
-  // EVENT - Actualizar campos del formulario
+  // EFFECT - Cargar factura seleccionada
+  useEffect(() => {
+
+    if (facturaEditar) {
+
+      setForm({
+        cliente: facturaEditar.cliente,
+        nit: facturaEditar.nit,
+        numeroFactura: facturaEditar.numeroFactura,
+        fecha: facturaEditar.fecha,
+        total: facturaEditar.total,
+        estado: facturaEditar.estado
+      })
+
+    }
+
+  }, [facturaEditar])
+
+  // EVENT - Actualizar campos
   const handleChange = (event) => {
 
     const { name, value } = event.target
@@ -27,18 +50,9 @@ const FacturaForm = () => {
     })
   }
 
-  // EVENT - Enviar formulario
-  const handleSubmit = async (event) => {
+  // Limpiar formulario
+  const clearForm = () => {
 
-    event.preventDefault()
-
-    // Crear nueva factura
-    await addFactura({
-      ...form,
-      total: Number(form.total)
-    })
-
-    // Limpiar formulario
     setForm({
       cliente: '',
       nit: '',
@@ -49,11 +63,44 @@ const FacturaForm = () => {
     })
   }
 
+  // EVENT - Enviar formulario
+  const handleSubmit = async (event) => {
+
+    event.preventDefault()
+
+    // Datos de la factura
+    const factura = {
+      ...form,
+      total: Number(form.total)
+    }
+
+    // UPDATE
+    if (facturaEditar) {
+
+      await editFactura(
+        facturaEditar.id,
+        factura
+      )
+
+    } else {
+
+      // CREATE
+      await addFactura(factura)
+
+    }
+
+    // Limpiar formulario
+    clearForm()
+  }
+
   return (
     <section className="mt-8">
 
       <h3 className="text-2xl font-bold mb-4">
-        Nueva factura
+        {facturaEditar
+          ? 'Editar factura'
+          : 'Nueva factura'
+        }
       </h3>
 
       <form
@@ -126,13 +173,30 @@ const FacturaForm = () => {
           <option value="Anulada">Anulada</option>
         </select>
 
-        {/* Botón guardar */}
+        {/* Guardar / Actualizar */}
         <button
           type="submit"
-          className="w-40 md:col-span-2 bg-blue-600 text-white rounded-lg px-4 py-2 hover:bg-blue-700 justify-self-center"
+          className="w-48 md:col-span-2 justify-self-center bg-blue-600 text-white rounded-lg px-4 py-2 hover:bg-blue-700"
         >
-          Guardar factura
+          {facturaEditar
+            ? 'Actualizar factura'
+            : 'Guardar factura'
+          }
         </button>
+
+        {/* Cancelar edición */}
+        {facturaEditar && (
+          <button
+            type="button"
+            onClick={() => {
+              setFacturaEditar(null)
+              clearForm()
+            }}
+            className="w-48 md:col-span-2 justify-self-center border border-gray-300 rounded-lg px-4 py-2 hover:bg-gray-100"
+          >
+            Cancelar edición
+          </button>
+        )}
 
       </form>
 

@@ -43,3 +43,29 @@ export const createFactura = async (factura) => {
 
   return data
 }
+
+// Actualizar una factura
+export const updateFactura = async (id, factura) => {
+
+  // Configurar petición PUT
+  const options = {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(factura)
+  }
+
+  // Enviar cambios a APIBox
+  const response = await fetch(`${API_URL}/${id}`, options)
+
+  // Validar respuesta
+  if (!response.ok) {
+    throw new Error('Error al actualizar la factura')
+  }
+
+  // Convertir respuesta a JSON
+  const data = await response.json()
+
+  return data
+}
