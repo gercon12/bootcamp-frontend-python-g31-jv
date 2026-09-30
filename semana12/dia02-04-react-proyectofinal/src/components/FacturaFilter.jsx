@@ -5,15 +5,37 @@ const FacturaFilter = ({
   setFiltro
 }) => {
 
-  return (
-    <section className="mt-6 flex gap-2">
+  // Obtener placeholder según el filtro
+  const placeholderBusqueda = () => {
 
-      {/* Seleccionar campo de búsqueda */}
+    if (filtro === 'numeroFactura') {
+      return 'Ej. FAC-001'
+    }
+
+    if (filtro === 'cliente') {
+      return 'Ej. Empresa ABC'
+    }
+
+    if (filtro === 'nit') {
+      return 'Ej. 1111111-1'
+    }
+
+    return 'Buscar...'
+  }
+
+
+  return (
+    <div className="flex gap-4">
+
+      {/* Seleccionar filtro */}
       <select
         value={filtro}
         onChange={(event) => setFiltro(event.target.value)}
-        className="border border-gray-300 rounded-lg px-4 py-2"
+        className="border border-gray-300 rounded-lg px-3 py-2"
       >
+        <option value="numeroFactura">
+          No. de factura
+        </option>
 
         <option value="cliente">
           Cliente
@@ -23,30 +45,26 @@ const FacturaFilter = ({
           NIT
         </option>
 
-        <option value="numeroFactura">
-          No. Factura
-        </option>
-
-        <option value="fecha">
-          Fecha
+        <option value="total">
+          Total
         </option>
 
         <option value="estado">
           Estado
         </option>
-
       </select>
 
-      {/* Texto de búsqueda */}
+
+      {/* Caja de búsqueda */}
       <input
         type="text"
-        placeholder="Buscar factura..."
         value={busqueda}
         onChange={(event) => setBusqueda(event.target.value)}
-        className="w-full border border-gray-300 rounded-lg px-4 py-2"
+        placeholder={placeholderBusqueda()}
+        className="border border-gray-300 rounded-lg px-3 py-2 flex-1"
       />
 
-    </section>
+    </div>
   )
 }
 

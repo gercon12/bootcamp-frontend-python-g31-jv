@@ -12,7 +12,7 @@ import Duplicados from './pages/Duplicados'
 const App = () => {
 
   return (
-    <div>
+    <div className="min-h-screen bg-gray-100">
 
       {/* COMPONENT */}
       <Header />

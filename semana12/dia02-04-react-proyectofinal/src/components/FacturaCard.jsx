@@ -73,14 +73,14 @@ const FacturaCard = ({ factura, mostrarAcciones = true }) => {
     <>
       <button
         onClick={() => setFacturaEditar(factura)}
-        className="mt-4 bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600"
+        className="mt-4 bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-700"
       >
         Editar
       </button>
 
       <button
         onClick={handleDelete}
-        className="mt-4 bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700"
+        className="mt-4 bg-red-600 text-white px-4 py-2 rounded hover:bg-red-500"
       >
         Eliminar
       </button>

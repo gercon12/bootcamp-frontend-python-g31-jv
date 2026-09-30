@@ -2,34 +2,44 @@ import { NavLink } from 'react-router'
 
 const Header = () => {
 
+  // Clases para los botones de navegación
+  const navClass = ({ isActive }) => {
+
+    return isActive
+      ? 'bg-blue-600 text-white px-4 py-2 rounded-lg'
+      : 'text-gray-300 px-4 py-2 rounded-lg '
+  }
+
   return (
-    <header className="bg-slate-900 text-white p-4 h-18">
+    <header className="bg-gradient-to-r from-black to-blue-800 border-b border-gray-200">
 
-      <div className="max-w-6xl mx-auto flex items-center justify-between">
+      <div className="max-w-6xl mx-auto p-6 flex justify-between items-center">
 
-        <h1 className="text-xl font-bold">
+        {/* Título */}
+        <h1 className="text-2xl font-bold text-amber-50">
           Control de Facturas
         </h1>
 
-        <nav className="flex gap-6">
+        {/* Navegación */}
+        <nav className="flex gap-2">
 
           <NavLink
             to="/"
-            className="hover:text-blue-400 text-2xl"
+            className={navClass}
           >
             Dashboard
           </NavLink>
 
           <NavLink
             to="/facturas"
-            className="hover:text-blue-400 text-2xl"
+            className={navClass}
           >
             Facturas
           </NavLink>
 
           <NavLink
             to="/duplicados"
-            className="hover:text-blue-400 text-2xl"
+            className={navClass}
           >
             Duplicados
           </NavLink>
