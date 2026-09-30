@@ -69,3 +69,22 @@ export const updateFactura = async (id, factura) => {
 
   return data
 }
+
+// Eliminar una factura
+export const deleteFactura = async (id) => {
+
+  // Configurar petición DELETE
+  const options = {
+    method: 'DELETE'
+  }
+
+  // Eliminar factura de APIBox
+  const response = await fetch(`${API_URL}/${id}`, options)
+
+  // Validar respuesta
+  if (!response.ok) {
+    throw new Error('Error al eliminar la factura')
+  }
+
+  return true
+}

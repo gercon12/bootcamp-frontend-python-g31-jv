@@ -1,5 +1,10 @@
 import { create } from 'zustand'
-import { getFacturas, createFactura, updateFactura } from '../services/facturasApi'
+import {
+  getFacturas,
+  createFactura,
+  updateFactura,
+  deleteFactura
+} from '../services/facturasApi'
 
 // STORE de facturas
 export const useFacturasStore = create((set) => ({
@@ -16,7 +21,7 @@ export const useFacturasStore = create((set) => ({
   // STATE GLOBAL - Factura seleccionada para editar
   facturaEditar: null,
 
-  
+
   // ACTION - Obtener facturas
   fetchFacturas: async () => {
 
@@ -111,6 +116,39 @@ export const useFacturasStore = create((set) => ({
       set({
         facturas: data,
         facturaEditar: null,
+        loading: false
+      })
+
+    } catch (error) {
+
+      // Guardar error
+      set({
+        error: error.message,
+        loading: false
+      })
+
+    }
+  },
+
+  // ACTION - Eliminar factura
+  removeFactura: async (id) => {
+
+    set({
+      loading: true,
+      error: null
+    })
+
+    try {
+
+      // Eliminar factura de APIBox
+      await deleteFactura(id)
+
+      // Obtener nuevamente las facturas
+      const data = await getFacturas()
+
+      // Actualizar STATE
+      set({
+        facturas: data,
         loading: false
       })
 

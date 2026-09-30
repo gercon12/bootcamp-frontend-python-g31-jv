@@ -1,9 +1,41 @@
 import { Link } from 'react-router'
 import { useFacturasStore } from '../store/facturasStore'
+import Swal from 'sweetalert2'
 
-const FacturaCard = ({ factura }) => {
+const FacturaCard = ({ factura, mostrarAcciones = true }) => {
   // STORE - ACTION para seleccionar factura
-  const { setFacturaEditar } = useFacturasStore()
+  const {
+    setFacturaEditar,
+    removeFactura
+  } = useFacturasStore()
+
+  // EVENT - Eliminar factura
+  const handleDelete = async () => {
+
+    // Confirmar eliminación
+    const result = await Swal.fire({
+      title: '¿Eliminar factura?',
+      text: `Se eliminará ${factura.numeroFactura}`,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Sí, eliminar',
+      cancelButtonText: 'Cancelar'
+    })
+
+    // Verificar confirmación
+    if (result.isConfirmed) {
+
+      await removeFactura(factura.id)
+
+      // Mostrar mensaje
+      Swal.fire({
+        title: 'Factura eliminada',
+        text: `${factura.numeroFactura} fue eliminada correctamente`,
+        icon: 'success'
+      })
+
+    }
+  }
 
   return (
     <article className="border border-gray-200 rounded-lg p-4 shadow-sm">
@@ -36,21 +68,34 @@ const FacturaCard = ({ factura }) => {
 
       <div className="flex gap-2">
 
-        <button
-          onClick={() => setFacturaEditar(factura)}
-          className="mt-4 bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600"
-        >
-          Editar
-        </button>
+  {/* Mostrar acciones solo cuando están permitidas */}
+  {mostrarAcciones && (
+    <>
+      <button
+        onClick={() => setFacturaEditar(factura)}
+        className="mt-4 bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600"
+      >
+        Editar
+      </button>
 
-        <Link
-          to={`/facturas/${factura.id}`}
-          className="inline-block mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
-        >
-          Ver detalle
-        </Link>
+      <button
+        onClick={handleDelete}
+        className="mt-4 bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700"
+      >
+        Eliminar
+      </button>
+    </>
+  )}
 
-      </div>
+  {/* Ver detalle siempre disponible */}
+  <Link
+    to={`/facturas/${factura.id}`}
+    className="inline-block mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+  >
+    Ver detalle
+  </Link>
+
+</div>
     </article>
   )
 }
