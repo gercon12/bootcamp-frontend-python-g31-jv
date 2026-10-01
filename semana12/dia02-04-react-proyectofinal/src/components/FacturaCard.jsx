@@ -3,6 +3,7 @@ import { useFacturasStore } from '../store/facturasStore'
 import Swal from 'sweetalert2'
 
 const FacturaCard = ({ factura, mostrarAcciones = true }) => {
+
   // STORE - ACTION para seleccionar factura
   const {
     setFacturaEditar,
@@ -37,66 +38,75 @@ const FacturaCard = ({ factura, mostrarAcciones = true }) => {
     }
   }
 
-// EVENT - Editar factura
-const handleEditar = () => {
+  // EVENT - Editar factura
+  const handleEditar = () => {
 
-  // Seleccionar factura
-  setFacturaEditar(factura)
+    // Seleccionar factura
+    setFacturaEditar(factura)
 
-  // Ir al formulario
-  document
-    .getElementById('formulario-factura')
-    ?.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start'
-    })
-}
+    // Ir al formulario
+    document
+      .getElementById('formulario-factura')
+      ?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      })
+  }
 
   return (
-    <article className="border border-gray-200 rounded-lg p-4 shadow-sm">
+    <article className="border border-gray-200 rounded-lg p-4 shadow-sm bg-white">
 
       {/* Número de factura */}
-      <h3 className="text-xl font-bold">
+      <h3 className="text-lg sm:text-xl font-bold">
         {factura.numeroFactura}
       </h3>
 
       {/* Datos de la factura */}
-      <p>
-        <span className="font-semibold">Cliente:</span> {factura.cliente}
-      </p>
+      <div className="mt-3 text-sm sm:text-base">
 
-      <p>
-        <span className="font-semibold">NIT:</span> {factura.nit}
-      </p>
+        <p>
+          <span className="font-semibold">Cliente:</span>{' '}
+          {factura.cliente}
+        </p>
 
-      <p>
-        <span className="font-semibold">Fecha:</span> {factura.fecha}
-      </p>
+        <p>
+          <span className="font-semibold">NIT:</span>{' '}
+          {factura.nit}
+        </p>
 
-      <p>
-        <span className="font-semibold">Total:</span> Q {factura.total}
-      </p>
+        <p>
+          <span className="font-semibold">Fecha:</span>{' '}
+          {factura.fecha}
+        </p>
 
-      <p>
-        <span className="font-semibold">Estado:</span> {factura.estado}
-      </p>
+        <p>
+          <span className="font-semibold">Total:</span>{' '}
+          Q {factura.total}
+        </p>
 
-      <div className="flex gap-2">
+        <p>
+          <span className="font-semibold">Estado:</span>{' '}
+          {factura.estado}
+        </p>
+
+      </div>
+
+      {/* Acciones */}
+      <div className="flex gap-2 mt-4">
 
         {/* Mostrar acciones solo cuando están permitidas */}
         {mostrarAcciones && (
           <>
             <button
-              // onClick={() => setFacturaEditar(factura)}
-               onClick={handleEditar}
-              className="mt-4 bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-700"
+              onClick={handleEditar}
+              className="bg-blue-800 text-white px-3 sm:px-4 py-2 rounded hover:bg-blue-700"
             >
               Editar
             </button>
 
             <button
               onClick={handleDelete}
-              className="mt-4 bg-red-600 text-white px-4 py-2 rounded hover:bg-red-500"
+              className="bg-red-600 text-white px-3 sm:px-4 py-2 rounded hover:bg-red-500"
             >
               Eliminar
             </button>
@@ -106,12 +116,13 @@ const handleEditar = () => {
         {/* Ver detalle siempre disponible */}
         <Link
           to={`/facturas/${factura.id}`}
-          className="inline-block mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+          className="inline-block text-center bg-blue-600 text-white px-3 sm:px-4 py-2 rounded hover:bg-blue-700"
         >
           Ver detalle
         </Link>
 
       </div>
+
     </article>
   )
 }
