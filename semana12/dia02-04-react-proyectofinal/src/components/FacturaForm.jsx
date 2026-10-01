@@ -1,7 +1,10 @@
-import { useEffect, useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useFacturasStore } from '../store/facturasStore'
 
 const FacturaForm = () => {
+
+  // REF - Referencia al input cliente
+  const clienteRef = useRef(null)
 
   // STORE - STATE y ACTIONS
   const {
@@ -34,6 +37,8 @@ const FacturaForm = () => {
         total: facturaEditar.total,
         estado: facturaEditar.estado
       })
+      // Colocar cursor en Cliente
+      clienteRef.current?.focus()
 
     }
 
@@ -112,6 +117,7 @@ const FacturaForm = () => {
         <label className='flex flex-col gap-2 text-gray-600 font-semibold'>
           Cliente
           <input
+            ref={clienteRef}
             type="text"
             name="cliente"
             placeholder="Cliente"

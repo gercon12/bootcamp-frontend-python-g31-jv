@@ -44,6 +44,13 @@ const Header = () => {
             Duplicados
           </NavLink>
 
+          <NavLink
+            to="/acerca-de"
+            className={navClass}
+          >
+            Acerca de
+          </NavLink>
+
         </nav>
 
       </div>

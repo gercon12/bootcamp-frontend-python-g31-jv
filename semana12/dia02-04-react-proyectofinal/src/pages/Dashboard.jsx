@@ -129,7 +129,7 @@ const Dashboard = () => {
               Posibles duplicados
             </p>
 
-            <p className="text-4xl font-bold mt-2">
+            <p className="text-4xl font-bold mt-2 text-red-600">
               {facturasDuplicadas.length}
             </p>
 

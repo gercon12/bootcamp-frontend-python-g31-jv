@@ -54,7 +54,9 @@ const Facturas = () => {
 
 
     {/* BLOQUE 1 - Ingreso de factura */}
-    <section className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
+    <section 
+    id="formulario-factura"
+    className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
 
       <FacturaForm />
 

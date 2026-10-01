@@ -37,6 +37,21 @@ const FacturaCard = ({ factura, mostrarAcciones = true }) => {
     }
   }
 
+// EVENT - Editar factura
+const handleEditar = () => {
+
+  // Seleccionar factura
+  setFacturaEditar(factura)
+
+  // Ir al formulario
+  document
+    .getElementById('formulario-factura')
+    ?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    })
+}
+
   return (
     <article className="border border-gray-200 rounded-lg p-4 shadow-sm">
 
@@ -68,34 +83,35 @@ const FacturaCard = ({ factura, mostrarAcciones = true }) => {
 
       <div className="flex gap-2">
 
-  {/* Mostrar acciones solo cuando están permitidas */}
-  {mostrarAcciones && (
-    <>
-      <button
-        onClick={() => setFacturaEditar(factura)}
-        className="mt-4 bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-700"
-      >
-        Editar
-      </button>
+        {/* Mostrar acciones solo cuando están permitidas */}
+        {mostrarAcciones && (
+          <>
+            <button
+              // onClick={() => setFacturaEditar(factura)}
+               onClick={handleEditar}
+              className="mt-4 bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-700"
+            >
+              Editar
+            </button>
 
-      <button
-        onClick={handleDelete}
-        className="mt-4 bg-red-600 text-white px-4 py-2 rounded hover:bg-red-500"
-      >
-        Eliminar
-      </button>
-    </>
-  )}
+            <button
+              onClick={handleDelete}
+              className="mt-4 bg-red-600 text-white px-4 py-2 rounded hover:bg-red-500"
+            >
+              Eliminar
+            </button>
+          </>
+        )}
 
-  {/* Ver detalle siempre disponible */}
-  <Link
-    to={`/facturas/${factura.id}`}
-    className="inline-block mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
-  >
-    Ver detalle
-  </Link>
+        {/* Ver detalle siempre disponible */}
+        <Link
+          to={`/facturas/${factura.id}`}
+          className="inline-block mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+        >
+          Ver detalle
+        </Link>
 
-</div>
+      </div>
     </article>
   )
 }
