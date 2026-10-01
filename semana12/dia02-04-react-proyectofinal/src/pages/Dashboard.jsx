@@ -30,40 +30,18 @@ const Dashboard = () => {
     factura.estado === 'Anulada'
   )
 
-  // Buscar posibles duplicados
-  // const facturasDuplicadas = facturas.filter((factura, index) => {
-
-  //   return facturas.some((otraFactura, otroIndex) => {
-
-  //     // Evitar comparar la factura consigo misma
-  //     if (index === otroIndex) {
-  //       return false
-  //     }
-
-  //     return (
-  //       factura.estado === 'Activa' &&
-  //       otraFactura.estado === 'Activa' &&
-  //       factura.nit === otraFactura.nit &&
-  //       factura.fecha === otraFactura.fecha &&
-  //       factura.total === otraFactura.total &&
-  //       factura.numeroFactura !== otraFactura.numeroFactura
-  //     )
-
-  //   })
-
-  // })
-  
   // Detectar posibles duplicados
   const facturasDuplicadas = detectarDuplicados(facturas)
 
   return (
-    <main className="max-w-6xl mx-auto p-6">
+    <main className="max-w-6xl mx-auto p-4 sm:p-6">
 
-      <h2 className="text-3xl font-bold">
+      {/* Encabezado */}
+      <h2 className="text-2xl sm:text-3xl font-bold">
         Dashboard
       </h2>
 
-      <p className="mt-2 text-gray-600">
+      <p className="mt-2 text-sm sm:text-base text-gray-600">
         Gestión de facturas y control de facturas duplicadas para evitar
         pagar impuestos en facturas que requieren anulación.
       </p>
@@ -81,55 +59,55 @@ const Dashboard = () => {
       {/* Indicadores */}
       {!loading && !error && (
 
-        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
+        <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-6 sm:mt-8">
 
           {/* Total */}
-          <div className="border border-gray-200 rounded-lg p-6 shadow-sm">
+          <div className="border border-gray-200 rounded-lg p-4 sm:p-6 shadow-sm bg-white">
 
-            <p className="text-gray-500">
+            <p className="text-sm sm:text-base text-gray-500">
               Total de facturas
             </p>
 
-            <p className="text-4xl font-bold mt-2">
+            <p className="text-3xl sm:text-4xl font-bold mt-2">
               {facturas.length}
             </p>
 
           </div>
 
           {/* Activas */}
-          <div className="border border-gray-200 rounded-lg p-6 shadow-sm">
+          <div className="border border-gray-200 rounded-lg p-4 sm:p-6 shadow-sm bg-white">
 
-            <p className="text-gray-500">
+            <p className="text-sm sm:text-base text-gray-500">
               Facturas activas
             </p>
 
-            <p className="text-4xl font-bold mt-2">
+            <p className="text-3xl sm:text-4xl font-bold mt-2">
               {facturasActivas.length}
             </p>
 
           </div>
 
           {/* Anuladas */}
-          <div className="border border-gray-200 rounded-lg p-6 shadow-sm">
+          <div className="border border-gray-200 rounded-lg p-4 sm:p-6 shadow-sm bg-white">
 
-            <p className="text-gray-500">
+            <p className="text-sm sm:text-base text-gray-500">
               Facturas anuladas
             </p>
 
-            <p className="text-4xl font-bold mt-2">
+            <p className="text-3xl sm:text-4xl font-bold mt-2">
               {facturasAnuladas.length}
             </p>
 
           </div>
 
           {/* Posibles duplicados */}
-          <div className="border border-gray-200 rounded-lg p-6 shadow-sm">
+          <div className="border border-gray-200 rounded-lg p-4 sm:p-6 shadow-sm bg-white">
 
-            <p className="text-gray-500">
+            <p className="text-sm sm:text-base text-gray-500">
               Posibles duplicados
             </p>
 
-            <p className="text-4xl font-bold mt-2 text-red-600">
+            <p className="text-3xl sm:text-4xl font-bold mt-2 text-red-600">
               {facturasDuplicadas.length}
             </p>
 
