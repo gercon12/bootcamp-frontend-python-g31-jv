@@ -67,7 +67,7 @@ const Facturas = () => {
 
 
       {/* BLOQUE 2 - Búsqueda */}
-      <section className="bg-gray-100 border border-gray-200 rounded-xl p-4 sm:p-6 mt-4 sm:mt-6">
+      <section className="bg-white border border-gray-200 rounded-xl p-4 sm:p-6 mt-4 sm:mt-6">
 
         <div className="mb-5">
 
@@ -92,7 +92,7 @@ const Facturas = () => {
 
 
       {/* BLOQUE 3 - Listado */}
-      <section className="bg-gray-200/60 border border-gray-200 rounded-xl p-4 sm:p-6 mt-4 sm:mt-6">
+      <section className="bg-white border border-gray-200 rounded-xl p-4 sm:p-6 mt-4 sm:mt-6">
 
         <div className="mb-5">
 
