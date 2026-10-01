@@ -25,13 +25,13 @@ const FacturaFilter = ({
 
 
   return (
-    <div className="flex gap-4">
+    <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
 
       {/* Seleccionar filtro */}
       <select
         value={filtro}
         onChange={(event) => setFiltro(event.target.value)}
-        className="border border-gray-300 rounded-lg px-3 py-2"
+        className="w-full sm:w-auto border border-gray-300 rounded-lg px-3 py-2"
       >
         <option value="numeroFactura">
           No. de factura
@@ -61,7 +61,7 @@ const FacturaFilter = ({
         value={busqueda}
         onChange={(event) => setBusqueda(event.target.value)}
         placeholder={placeholderBusqueda()}
-        className="border border-gray-300 rounded-lg px-3 py-2 flex-1"
+        className="w-full min-w-0 border border-gray-300 rounded-lg px-3 py-2 sm:flex-1"
       />
 
     </div>
