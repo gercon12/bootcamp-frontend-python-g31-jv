@@ -1,7 +1,10 @@
-import { useEffect, useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useFacturasStore } from '../store/facturasStore'
 
 const FacturaForm = () => {
+
+  // REF - Referencia al input cliente
+  const clienteRef = useRef(null)
 
   // STORE - STATE y ACTIONS
   const {
@@ -34,6 +37,9 @@ const FacturaForm = () => {
         total: facturaEditar.total,
         estado: facturaEditar.estado
       })
+
+      // Colocar cursor en Cliente
+      clienteRef.current?.focus()
 
     }
 
@@ -94,9 +100,9 @@ const FacturaForm = () => {
   }
 
   return (
-    <section className="mt-8">
+    <section>
 
-      <h3 className="text-2xl font-bold mb-4">
+      <h3 className="text-xl sm:text-2xl font-bold mb-4 text-blue-900">
         {facturaEditar
           ? 'Editar factura'
           : 'Nueva factura'
@@ -109,74 +115,93 @@ const FacturaForm = () => {
       >
 
         {/* Cliente */}
-        <input
-          type="text"
-          name="cliente"
-          placeholder="Cliente"
-          value={form.cliente}
-          onChange={handleChange}
-          required
-          className="border border-gray-300 rounded-lg px-4 py-2"
-        />
+        <label className="flex flex-col gap-2 text-gray-600 font-semibold">
+          Cliente
+          <input
+            ref={clienteRef}
+            type="text"
+            name="cliente"
+            placeholder="Cliente"
+            value={form.cliente}
+            onChange={handleChange}
+            required
+            className="w-full min-w-0 border border-gray-300 rounded-lg px-3 sm:px-4 py-2"
+          />
+        </label>
 
         {/* NIT */}
-        <input
-          type="text"
-          name="nit"
-          placeholder="NIT"
-          value={form.nit}
-          onChange={handleChange}
-          required
-          className="border border-gray-300 rounded-lg px-4 py-2"
-        />
+        <label className="flex flex-col gap-2 text-gray-600 font-semibold">
+          Ingresar número de NIT
+          <input
+            type="text"
+            name="nit"
+            placeholder="Eje. 1111111-1"
+            value={form.nit}
+            onChange={handleChange}
+            required
+            className="w-full min-w-0 border border-gray-300 rounded-lg px-3 sm:px-4 py-2"
+          />
+        </label>
 
         {/* Número de factura */}
-        <input
-          type="text"
-          name="numeroFactura"
-          placeholder="No. Factura"
-          value={form.numeroFactura}
-          onChange={handleChange}
-          required
-          className="border border-gray-300 rounded-lg px-4 py-2"
-        />
+        <label className="flex flex-col gap-2 text-gray-600 font-semibold">
+          Ingresar número de factura
+          <input
+            type="text"
+            name="numeroFactura"
+            placeholder="Eje. FAC-001"
+            value={form.numeroFactura}
+            onChange={handleChange}
+            required
+            className="w-full min-w-0 border border-gray-300 rounded-lg px-3 sm:px-4 py-2"
+          />
+        </label>
 
         {/* Fecha */}
-        <input
-          type="date"
-          name="fecha"
-          value={form.fecha}
-          onChange={handleChange}
-          required
-          className="border border-gray-300 rounded-lg px-4 py-2"
-        />
+        <label className="flex flex-col gap-2 text-gray-600 font-semibold">
+          Ingresar fecha
+          <input
+            type="date"
+            name="fecha"
+            value={form.fecha}
+            onChange={handleChange}
+            required
+            className="w-full min-w-0 border border-gray-300 rounded-lg px-3 sm:px-4 py-2"
+          />
+        </label>
 
         {/* Total */}
-        <input
-          type="number"
-          name="total"
-          placeholder="Total"
-          value={form.total}
-          onChange={handleChange}
-          required
-          className="border border-gray-300 rounded-lg px-4 py-2"
-        />
+        <label className="flex flex-col gap-2 text-gray-600 font-semibold">
+          Total factura
+          <input
+            type="number"
+            name="total"
+            placeholder="Total"
+            value={form.total}
+            onChange={handleChange}
+            required
+            className="w-full min-w-0 border border-gray-300 rounded-lg px-3 sm:px-4 py-2"
+          />
+        </label>
 
         {/* Estado */}
-        <select
-          name="estado"
-          value={form.estado}
-          onChange={handleChange}
-          className="border border-gray-300 rounded-lg px-4 py-2"
-        >
-          <option value="Activa">Activa</option>
-          <option value="Anulada">Anulada</option>
-        </select>
+        <label className="flex flex-col gap-2 text-gray-600 font-semibold">
+          Estado factura
+          <select
+            name="estado"
+            value={form.estado}
+            onChange={handleChange}
+            className="w-full min-w-0 border border-gray-300 rounded-lg px-3 sm:px-4 py-2"
+          >
+            <option value="Activa">Activa</option>
+            <option value="Anulada">Anulada</option>
+          </select>
+        </label>
 
         {/* Guardar / Actualizar */}
         <button
           type="submit"
-          className="w-48 md:col-span-2 justify-self-center bg-blue-600 text-white rounded-lg px-4 py-2 hover:bg-blue-700"
+          className="w-full sm:w-48 md:col-span-2 justify-self-center bg-blue-600 text-white rounded-lg px-4 py-2 hover:bg-blue-700"
         >
           {facturaEditar
             ? 'Actualizar factura'
@@ -192,7 +217,7 @@ const FacturaForm = () => {
               setFacturaEditar(null)
               clearForm()
             }}
-            className="w-48 md:col-span-2 justify-self-center border border-gray-300 rounded-lg px-4 py-2 hover:bg-gray-100"
+            className="w-full sm:w-48 md:col-span-2 justify-self-center border border-gray-300 rounded-lg px-4 py-2 hover:bg-gray-100"
           >
             Cancelar edición
           </button>

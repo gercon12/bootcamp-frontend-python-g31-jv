@@ -25,15 +25,20 @@ const Duplicados = () => {
   const facturasDuplicadas = detectarDuplicados(facturas)
 
   return (
-    <main className="max-w-6xl mx-auto p-6">
+    <main className="max-w-6xl mx-auto p-4 sm:p-6">
 
-      <h2 className="text-3xl font-bold">
-        Posibles duplicados
-      </h2>
+      {/* Encabezado */}
+      <div className="mb-6 sm:mb-8">
 
-      <p className="mt-2 text-gray-600">
-        Facturas con coincidencias que requieren revisión.
-      </p>
+        <h2 className="text-2xl sm:text-3xl font-bold">
+          Posibles duplicados
+        </h2>
+
+        <p className="mt-2 text-sm sm:text-base text-gray-600">
+          Facturas con coincidencias que requieren revisión.
+        </p>
+
+      </div>
 
       {/* Loading */}
       {loading && <Loading />}
@@ -55,7 +60,7 @@ const Duplicados = () => {
 
       {/* Sin duplicados */}
       {!loading && !error && facturasDuplicadas.length === 0 && (
-        <p className="mt-6 text-gray-500">
+        <p className="text-gray-500">
           No se encontraron posibles facturas duplicadas.
         </p>
       )}

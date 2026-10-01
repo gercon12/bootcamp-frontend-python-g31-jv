@@ -8,11 +8,12 @@ import Dashboard from './pages/Dashboard'
 import Facturas from './pages/Facturas'
 import FacturaDetalle from './pages/FacturaDetalle'
 import Duplicados from './pages/Duplicados'
+import AcercaDe from './pages/AcercaDe'
 
 const App = () => {
 
   return (
-    <div>
+    <div className="min-h-screen bg-gray-100">
 
       {/* COMPONENT */}
       <Header />
@@ -42,6 +43,11 @@ const App = () => {
         <Route
           path="/duplicados"
           element={<Duplicados />}
+        />
+
+        <Route
+          path="/acerca-de"
+          element={<AcercaDe />}
         />
 
       </Routes>

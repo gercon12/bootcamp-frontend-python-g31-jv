@@ -31,7 +31,7 @@ const FacturaDetalle = () => {
   // Mostrar loading
   if (loading) {
     return (
-      <main className="max-w-6xl mx-auto p-6">
+      <main className="max-w-6xl mx-auto p-4 sm:p-6">
         <Loading />
       </main>
     )
@@ -40,7 +40,7 @@ const FacturaDetalle = () => {
   // Mostrar error
   if (error) {
     return (
-      <main className="max-w-6xl mx-auto p-6">
+      <main className="max-w-6xl mx-auto p-4 sm:p-6">
 
         <p className="text-red-600">
           {error}
@@ -53,7 +53,7 @@ const FacturaDetalle = () => {
   // Factura no encontrada
   if (!factura) {
     return (
-      <main className="max-w-6xl mx-auto p-6">
+      <main className="max-w-6xl mx-auto p-4 sm:p-6">
 
         <p className="text-gray-600">
           Factura no encontrada.
@@ -84,18 +84,18 @@ const FacturaDetalle = () => {
   )
 
   return (
-    <main className="max-w-6xl mx-auto p-6">
+    <main className="max-w-6xl mx-auto p-4 sm:p-6">
 
       {/* Encabezado */}
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center gap-4">
 
         <div>
 
-          <h2 className="text-3xl font-bold">
+          <h2 className="text-2xl sm:text-3xl font-bold">
             {factura.numeroFactura}
           </h2>
 
-          <p className="text-gray-500 mt-1">
+          <p className="text-sm sm:text-base text-gray-500 mt-1">
             Detalle de factura
           </p>
 
@@ -103,7 +103,7 @@ const FacturaDetalle = () => {
 
         <Link
           to="/facturas"
-          className="bg-gray-200 px-4 py-2 rounded hover:bg-gray-300"
+          className="shrink-0 bg-gray-200 px-4 py-2 rounded hover:bg-gray-300"
         >
           Volver
         </Link>
@@ -111,13 +111,13 @@ const FacturaDetalle = () => {
       </div>
 
       {/* Información de la factura */}
-      <section className="mt-8 border border-gray-200 rounded-lg p-6">
+      <section className="mt-6 sm:mt-8 border border-gray-200 rounded-lg p-4 sm:p-6 bg-white">
 
-        <h3 className="text-xl font-bold mb-4">
+        <h3 className="text-lg sm:text-xl font-bold mb-4">
           Información
         </h3>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm sm:text-base">
 
           <p>
             <span className="font-semibold">
@@ -156,15 +156,16 @@ const FacturaDetalle = () => {
       </section>
 
       {/* Productos */}
-      <section className="mt-8">
+      <section className="mt-6 sm:mt-8">
 
-        <h3 className="text-xl font-bold mb-4">
+        <h3 className="text-lg sm:text-xl font-bold mb-4">
           Productos
         </h3>
 
-        <div className="overflow-x-auto border border-gray-200 rounded-lg">
+        {/* Scroll horizontal en pantallas pequeñas */}
+        <div className="overflow-x-auto border border-gray-200 rounded-lg bg-white">
 
-          <table className="w-full border-collapse">
+          <table className="w-full min-w-[700px] border-collapse text-sm sm:text-base">
 
             {/* Encabezado de tabla */}
             <thead>
@@ -269,29 +270,29 @@ const FacturaDetalle = () => {
       {/* Totales */}
       <section className="mt-6 flex justify-end">
 
-        <div className="w-full md:w-80 border border-gray-200 rounded-lg p-5">
+        <div className="w-full sm:w-80 border border-gray-200 rounded-lg p-4 sm:p-5 bg-white">
 
           {/* Total calculado */}
-          <div className="flex justify-between">
+          <div className="flex justify-between gap-4">
 
             <span>
               Total productos:
             </span>
 
-            <span className="font-bold">
+            <span className="font-bold whitespace-nowrap">
               Q {totalCalculado}
             </span>
 
           </div>
 
           {/* Total registrado */}
-          <div className="flex justify-between mt-3">
+          <div className="flex justify-between gap-4 mt-3">
 
             <span>
               Total factura:
             </span>
 
-            <span className="font-bold">
+            <span className="font-bold whitespace-nowrap">
               Q {factura.total}
             </span>
 
