@@ -37,6 +37,7 @@ const FacturaForm = () => {
         total: facturaEditar.total,
         estado: facturaEditar.estado
       })
+
       // Colocar cursor en Cliente
       clienteRef.current?.focus()
 
@@ -99,9 +100,9 @@ const FacturaForm = () => {
   }
 
   return (
-    <section className="mt-8">
+    <section>
 
-      <h3 className="text-2xl font-bold mb-4 text-blue-900">
+      <h3 className="text-xl sm:text-2xl font-bold mb-4 text-blue-900">
         {facturaEditar
           ? 'Editar factura'
           : 'Nueva factura'
@@ -114,7 +115,7 @@ const FacturaForm = () => {
       >
 
         {/* Cliente */}
-        <label className='flex flex-col gap-2 text-gray-600 font-semibold'>
+        <label className="flex flex-col gap-2 text-gray-600 font-semibold">
           Cliente
           <input
             ref={clienteRef}
@@ -124,12 +125,12 @@ const FacturaForm = () => {
             value={form.cliente}
             onChange={handleChange}
             required
-            className="border border-gray-300 rounded-lg px-4 py-2"
+            className="w-full min-w-0 border border-gray-300 rounded-lg px-3 sm:px-4 py-2"
           />
         </label>
 
         {/* NIT */}
-        <label className='flex flex-col gap-2 text-gray-600 font-semibold'>
+        <label className="flex flex-col gap-2 text-gray-600 font-semibold">
           Ingresar número de NIT
           <input
             type="text"
@@ -138,12 +139,12 @@ const FacturaForm = () => {
             value={form.nit}
             onChange={handleChange}
             required
-            className="border border-gray-300 rounded-lg px-4 py-2"
+            className="w-full min-w-0 border border-gray-300 rounded-lg px-3 sm:px-4 py-2"
           />
         </label>
 
         {/* Número de factura */}
-        <label className='flex flex-col gap-2 text-gray-600 font-semibold'>
+        <label className="flex flex-col gap-2 text-gray-600 font-semibold">
           Ingresar número de factura
           <input
             type="text"
@@ -152,12 +153,12 @@ const FacturaForm = () => {
             value={form.numeroFactura}
             onChange={handleChange}
             required
-            className="border border-gray-300 rounded-lg px-4 py-2"
+            className="w-full min-w-0 border border-gray-300 rounded-lg px-3 sm:px-4 py-2"
           />
         </label>
 
         {/* Fecha */}
-        <label className='flex flex-col gap-2 text-gray-600 font-semibold'>
+        <label className="flex flex-col gap-2 text-gray-600 font-semibold">
           Ingresar fecha
           <input
             type="date"
@@ -165,12 +166,12 @@ const FacturaForm = () => {
             value={form.fecha}
             onChange={handleChange}
             required
-            className="border border-gray-300 rounded-lg px-4 py-2"
+            className="w-full min-w-0 border border-gray-300 rounded-lg px-3 sm:px-4 py-2"
           />
         </label>
 
         {/* Total */}
-        <label className='flex flex-col gap-2 text-gray-600 font-semibold'>
+        <label className="flex flex-col gap-2 text-gray-600 font-semibold">
           Total factura
           <input
             type="number"
@@ -179,18 +180,18 @@ const FacturaForm = () => {
             value={form.total}
             onChange={handleChange}
             required
-            className="border border-gray-300 rounded-lg px-4 py-2"
+            className="w-full min-w-0 border border-gray-300 rounded-lg px-3 sm:px-4 py-2"
           />
         </label>
 
         {/* Estado */}
-        <label className='flex flex-col gap-2 text-gray-600 font-semibold'>
+        <label className="flex flex-col gap-2 text-gray-600 font-semibold">
           Estado factura
           <select
             name="estado"
             value={form.estado}
             onChange={handleChange}
-            className="border border-gray-300 rounded-lg px-4 py-2"
+            className="w-full min-w-0 border border-gray-300 rounded-lg px-3 sm:px-4 py-2"
           >
             <option value="Activa">Activa</option>
             <option value="Anulada">Anulada</option>
@@ -200,7 +201,7 @@ const FacturaForm = () => {
         {/* Guardar / Actualizar */}
         <button
           type="submit"
-          className="w-48 md:col-span-2 justify-self-center bg-blue-600 text-white rounded-lg px-4 py-2 hover:bg-blue-700"
+          className="w-full sm:w-48 md:col-span-2 justify-self-center bg-blue-600 text-white rounded-lg px-4 py-2 hover:bg-blue-700"
         >
           {facturaEditar
             ? 'Actualizar factura'
@@ -216,7 +217,7 @@ const FacturaForm = () => {
               setFacturaEditar(null)
               clearForm()
             }}
-            className="w-48 md:col-span-2 justify-self-center border border-gray-300 rounded-lg px-4 py-2 hover:bg-gray-100"
+            className="w-full sm:w-48 md:col-span-2 justify-self-center border border-gray-300 rounded-lg px-4 py-2 hover:bg-gray-100"
           >
             Cancelar edición
           </button>
