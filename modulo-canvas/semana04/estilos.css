@@ -1,3 +1,4 @@
+/* Trancisiones */
 h1 {
     color: white;
     background: blue;
@@ -15,6 +16,7 @@ h1:hover {
     border-radius: 10px;
 }
 
+/* Animaciones */
 h2 {
     animation-duration: 2s;
     animation-iteration-count: infinite;
@@ -24,10 +26,34 @@ h2 {
 @keyframes titleAnimation {
     from {
         background: blue;
-        border: 3px solid orange;
+        color: white;
     }
     to {
         background: red;
-        border-color: blue;
+        color: orange;
     }
+}
+
+/* Grillas */
+
+.grid {
+    display: grid;
+    grid-template-rows: 100px  100px;
+    grid-template-columns: 100px 100px 100px 100px;
+    color: white;
+    /* grid-row-gap: 10px;
+    grid-column-gap: 10px ; */
+    gap:20px
+}
+
+.grid div {
+    background: gray;
+}
+
+.grid div:nth-child(even) {
+    background: lightblue;
+}
+
+.grid div:nth-child(1) {
+    grid-column: 1/5;
 }
